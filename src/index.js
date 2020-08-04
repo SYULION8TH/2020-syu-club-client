@@ -5,8 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import './scss/common.scss';
 
 // VIEWS
-import MainView from './views/MainViews';
-import NotFoundView from './views/NotFoundViews';
+import MainView from './views/MainView';
+import NotFoundView from './views/NotFoundView';
 
 // ROUTER
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';

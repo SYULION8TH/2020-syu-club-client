@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 동아리 연합회 클라이언트 부 
 
-## Available Scripts
+멋쟁이 사자처럼 동아리 연합회 프로젝트의 클라이언트 부 입니다.
 
-In the project directory, you can run:
+## 요구 사항 
 
-### `yarn start`
+본 프로젝트를 진행하려면, 최신인 stable한 버전의 `node`가 설치되어 있어야 합니다.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 작업 순서 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+모든 작업은 해당 저장소의 [project 탭](https://github.com/SYULION8TH/2020-syu-club-client/projects)에 공유될 예정 입니다. 
+업무가 등록되면, 이슈 탭에도 등록될 예정이니 각 작업을 확인해보고 진척정도를 알려주시면 됩니다. 
 
-### `yarn test`
+> 작업 처리에 관련된 항목은 실제 예제와 함께 다시 업로드 될 예정 입니다.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 개발 명령어
 
-### `yarn build`
+- `yarn run start` : 개발 서버를 실행합니다
+- `yarn run build` : 현재 상태 내용을 빌드합니다.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 공통 사항
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- 컴포넌트, 변수의 이름은 되도록 카멜케이스를 따르도록 합니다. 
+- 모든 화면은 반복적으로 사용되는 `component`와 각 페이지를 의미하는 `view`로 나뉩니다.
+- ~prettier를 사용합니다. 저장시 자동으로 정렬되도록 설정해둡니다.~ (설정 파일을 추가로 배포할 예정입니다)
+- ~master 브랜치에는 업로드하지 않고, 기능 개발시 브랜치를 만들어 pull request를 작성하도록 합니다~ (아직 미적용 입니다.)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## View 개발
 
-### `yarn eject`
+[react code snippet](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets) 확장 툴을 사용하고, 기본 뼈대는 `rafce`를 기준으로 합니다. 
+해당 구조는 링크에서 확인해볼 수 있습니다. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 프로젝트 구조 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. api 폴더 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+api 통신부 내용들만 포함됩니다. 기능 단위로 파일을 만들게되며, 파일의 이름은 `기능명.api.js`로 만들게 됩니다. 각 api는 작성된 후 
+해당 폴더에 `index.js`에 등록되어야 하고, 기능명과 동일한 이름으로 추가해줍니다. 이때 이름의 첫 문자는 대문자이어야 합니다. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 2. components 폴더 
 
-## Learn More
+한 페이지 이상 자주 반복되거나, 대다수의 `route`에서 반복적으로 노출되는 요소들을 모아둡니다. 컴포넌트 이름의 폴더를 만든 후 `index.js`에
+등록합니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. lib 폴더
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+모든 `component` 혹은 `view`에서 데이터를 다루거나 할 때 필요한 공통 함수들을 모아둡니다. 대다수 작업자들은 불러와 사용하도록 합니다. 
 
-### Code Splitting
+### 4. scss 폴더
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+현재 `scss`파일들은 모두 `view` 폴더 혹은 `component` 폴더 안에서 각각 가지고 작업하게 되어있으나 모든 페이지에 적용되어야 하거나 모든 컴포넌트에서 사용할 수 있는 `mixin` 혹은 `전역 변수`로 사용되는 항목들은 이 폴더에 모아둡니다.
 
-### Analyzing the Bundle Size
+### 5. views 폴더
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+주소에 매칭되는 실제 페이지들을 모아둡니다. 각 폴더의 이름은 카멜케이스로 작성되며, 각 폴더에는 페이지 파일을 모두 작성해둔 `index.jsx` 파일을 가져야 합니다. 그리고 각 페이지에서 복잡한 항목을 포함하게 되어 컴포넌트로 분리하게 될 경우 카멜케이스로 `jsx`파일을 만들어 불러와 사용하도록 합니다. 
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
