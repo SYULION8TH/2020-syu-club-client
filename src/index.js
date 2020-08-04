@@ -1,12 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import './scss/common.scss';
+
+// VIEWS
+import MainView from './views/MainViews';
+import NotFoundView from './views/NotFoundViews';
+
+// ROUTER
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// REDUX
+
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import Thunk from 'redux-thunk';
+import rootReducer from './modules';
+
+const store = createStore(rootReducer, applyMiddleware(Thunk));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Provider store={ store }>
+        <Router>
+          <>
+            <Switch>
+              <Route exact path="/" component={ MainView }></Route>
+              <Route path="*" component={ NotFoundView }></Route>
+            </Switch>
+          </>
+        </Router>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
