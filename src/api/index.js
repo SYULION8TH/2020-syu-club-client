@@ -1,5 +1,3 @@
 import Clubs from './clubs.api';
 
-export {
-    Clubs
-};
+export { Clubs };
