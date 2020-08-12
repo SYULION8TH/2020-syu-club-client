@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export async function getSomething() {
-    const host = 'localhost:3000'; // 실제 호스트가 생기면 변경
+    const host = process.env.REACT_APP_API_HOST;
+
     const response = await axios({
         url: `${host}/something`,
     });
