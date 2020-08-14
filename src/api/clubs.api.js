@@ -6,5 +6,6 @@ export async function getSomething() {
     const response = await axios({
         url: `${host}/something`,
     });
+
     return response.data;
 }

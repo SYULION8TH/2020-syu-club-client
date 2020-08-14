@@ -1,9 +1,14 @@
 import React from 'react';
+import './scss/MainView.scss';
+
+import AnimatedBackground from './AnimatedBackground';
+import SearchForm from './SearchForm';
 
 const MainView = () => {
     return (
-        <div>
-            <h1>동연회!</h1>
+        <div className={`main-container`}>
+            <AnimatedBackground />
+            <SearchForm />
         </div>
     );
 };

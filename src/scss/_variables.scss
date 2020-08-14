@@ -15,9 +15,25 @@ $colors-dark: #282c34;
 $colors-light-dark: #323947;
 $colors-text-sub: #afafaf;
 
+$colors-gradient-color-1: #ef949d;
+$colors-gradient-color-2: #9e5087;
+$colors-gradient-color-3: #3d3d84;
+
+$bg-gradient: linear-gradient(
+    10deg,
+    $colors-gradient-color-1 50%,
+    $colors-gradient-color-2 75%,
+    $colors-gradient-color-3 90%
+);
+
 // NAVBAR
 $navbar-height: 60px;
 $navbar-width: 75px;
 
 // COMMON
 $pc-max-width: 1600px;
+
+// Z-INDEX
+
+$background-z-index: -10;
+$view-z-index: 10;

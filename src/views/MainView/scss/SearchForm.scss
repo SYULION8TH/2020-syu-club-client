@@ -1,0 +1,98 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+@keyframes arrow-animation {
+    from {
+        margin-bottom: -10px;
+    }
+    to {
+        margin-bottom: 0;
+    }
+}
+
+.search-form-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .search-form-wrapper {
+        width: 280px;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 15px;
+        border-radius: 20px;
+
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+
+        margin-top: 100%;
+        opacity: 0;
+
+        #search-input {
+            margin: 0 5px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 0;
+            color: #000;
+            width: 100%;
+            height: 100%;
+            font-size: 1.2rem;
+            padding: 3px 0;
+        }
+        #search-btn {
+            border: 0;
+            background-color: rgba(0, 0, 0, 0);
+            color: #000;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    #search-help-text {
+        margin-top: 20px;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.7);
+        opacity: 0;
+    }
+    .guide-container {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        width: 100%;
+        opacity: 0;
+        .guide-arrow {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: arrow-animation 1s infinite;
+        }
+        .guide-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    &.loaded {
+        #search-help-text {
+            transition: 2s;
+            opacity: 1;
+        }
+        .search-form-wrapper {
+            transition: 2s;
+            opacity: 1;
+            margin-top: 60%;
+        }
+        .guide-container {
+            transition: 2s;
+            opacity: 1;
+        }
+    }
+}
