@@ -18,13 +18,17 @@ h1 {
 
     overflow-y: auto;
     scroll-behavior: smooth;
-    scroll-snap-type: mandatory;
-    scroll-snap-points-y: repeat(100vh);
     scroll-snap-type: y mandatory;
 
     .contents-container {
-        width: 100%;
+        // width: 100%;
         height: 100%;
         scroll-snap-align: start;
+        padding: 0 $content-spacing 0 $content-spacing;
+        .contents-wrapper {
+            width: 100%;
+            max-width: 100%;
+            padding-top: $navbar-height + $content-spacing;
+        }
     }
 }

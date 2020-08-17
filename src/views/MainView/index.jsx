@@ -21,16 +21,18 @@ const MainView = () => {
             <AnimatedBackground coverOpacity={coverOpacity} />
             <SearchForm />
             <div className="contents-container">
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
-                <p>Hello World</p>
+                <div className="contents-wrapper">
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                </div>
             </div>
         </div>
     );
