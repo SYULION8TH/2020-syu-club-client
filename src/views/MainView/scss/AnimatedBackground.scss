@@ -40,6 +40,13 @@
             z-index: $background-z-index;
         }
 
+        #blur-cover {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backdrop-filter: blur(10px);
+        }
+
         &.loaded {
             transition: 2s;
             background-position-y: 0%;
@@ -61,6 +68,12 @@
                 margin-top: -20px;
                 transition: 2s;
             }
+        }
+    }
+
+    &.opened {
+        #blur-cover {
+            // opacity: 1;
         }
     }
 }

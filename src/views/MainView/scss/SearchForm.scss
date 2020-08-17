@@ -3,10 +3,13 @@
 
 @keyframes arrow-animation {
     from {
-        margin-bottom: -10px;
+        top: 0;
+    }
+    50% {
+        top: -7px;
     }
     to {
-        margin-bottom: 0;
+        top: 0px;
     }
 }
 
@@ -17,6 +20,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 1;
+    scroll-snap-align: start;
+    // position: absolute;
 
     .search-form-wrapper {
         width: 280px;
@@ -66,12 +72,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
         padding: 20px 0;
         width: 100%;
         opacity: 0;
         .guide-arrow {
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.7);
+            position: absolute;
             animation: arrow-animation 1s infinite;
         }
         .guide-text {
