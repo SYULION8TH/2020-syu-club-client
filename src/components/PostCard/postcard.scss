@@ -1,0 +1,52 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.__post-card-container {
+    width: 120px;
+    height: 159px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    .__post-card-container-header {
+        margin: 4px;
+        overflow: hidden;
+        height: 112px;
+        width: 112px;
+        border-radius: 5px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+
+        .__post-card-container-img {
+            height: 100%;
+            flex-shrink: 0;
+            flex-grow: 0;
+            &.placeholder {
+                background-color: $colors-gradient-color-3;
+                // height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .__post-card-container-content {
+        margin: 0 5px 5px 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        .__post-card-container-title {
+            color: #000;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        .__post-card-container-date {
+            color: $colors-text-sub;
+            font-size: 0.45rem;
+            margin: 0;
+        }
+    }
+}

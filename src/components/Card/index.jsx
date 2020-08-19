@@ -13,7 +13,7 @@ const index = (props) => {
     );
 };
 
-index.props = {
+index.propTypes = {
     title: PropTypes.string.isRequired,
     className: PropTypes.string,
 };
