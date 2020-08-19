@@ -1,0 +1,32 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.__card-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: max-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    border-radius: 5px;
+
+    .__card-container-header {
+        // width: 100%;
+        margin: 10px 10px 0 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .__card-container-header-text {
+            color: $colors-white;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+    }
+    .__card-container-content-wrapper {
+        margin: 10px;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: $content-spacing;
+    }
+}

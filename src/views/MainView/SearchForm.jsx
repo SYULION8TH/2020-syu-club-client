@@ -36,6 +36,9 @@ const SearchForm = (props) => {
                 <span className="guide-arrow">
                     <RiArrowUpSLine />
                 </span>
+                <div className="guide-text-shadow">
+                    <p>자세히 보기</p>
+                </div>
                 <p className="guide-text">자세히 보기</p>
             </div>
         </div>

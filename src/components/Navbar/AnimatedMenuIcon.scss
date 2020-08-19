@@ -10,6 +10,8 @@
     height: 22px;
     margin: 5px 5px 5px 15px;
     position: relative;
+    transition: 0.5s;
+    left: 0;
 
     .animated-menu-row {
         width: 25px;
@@ -32,6 +34,8 @@
     }
 
     &.active {
+        transition: 0.5s;
+        left: $navbar-content-width;
         div:nth-child(1) {
             transition: 0.5s;
             transform: rotateZ(45deg);

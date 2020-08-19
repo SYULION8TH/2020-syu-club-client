@@ -4,7 +4,7 @@ import './scss/MainView.scss';
 import AnimatedBackground from './AnimatedBackground';
 import SearchForm from './SearchForm';
 
-import { Navbar } from '../../components';
+import { Navbar, Card } from '../../components';
 
 const MainView = () => {
     const _innerHeight = window.innerHeight;
@@ -22,16 +22,19 @@ const MainView = () => {
             <SearchForm />
             <div className="contents-container">
                 <div className="contents-wrapper">
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
+                    <Card title="관심 동아리 최근 포스트">
+                        <p>Hello World</p>
+                    </Card>
+                    <Card title="관심 동아리 최근 포스트">
+                        <p>Hello World</p>
+                    </Card>
+                    <Card title="아무튼 목록">
+                        <p>Hello World</p>
+                        <p>Hello World</p>
+                        <p>Hello World</p>
+                        <p>Hello World</p>
+                        <p>Hello World</p>
+                    </Card>
                 </div>
             </div>
         </div>

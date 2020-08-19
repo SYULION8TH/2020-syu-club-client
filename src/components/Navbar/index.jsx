@@ -7,6 +7,9 @@ export const Navbar = (props) => {
     return (
         <div className={`navbar-container`}>
             <AnimatedMenuIcon isOpened={menuOpened} setIsOpened={(v) => setMenuOpened(v)} />
+            <div className={`navbar-content-container ${menuOpened ? 'active' : ''}`}>
+                <p>Jello</p>
+            </div>
         </div>
     );
 };
