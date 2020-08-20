@@ -36,7 +36,23 @@
 ### 1. api 폴더
 
 api 통신부 내용들만 포함됩니다. 기능 단위로 파일을 만들게되며, 파일의 이름은 `기능명.api.js`로 만들게 됩니다. 각 api는 작성된 후
-해당 폴더에 `index.js`에 등록되어야 하고, 기능명과 동일한 이름으로 추가해줍니다. 이때 이름의 첫 문자는 대문자이어야 합니다.
+해당 폴더에 `index.js`에 등록되어야 하고, 기능명과 동일한 이름으로 추가해줍니다. 이때 이름의 첫 문자는 대문자이어야 합니다. API를 불러와 사용하는 예제는 다음과 같습니다.
+
+```jsx
+import { QnaAPI } from '../../api';
+import React, { useEffect } from 'react'
+
+const Component = ()=>{
+    const fn = async ()=>{
+        const result = await QnaAPI.fetchQna();
+        console.log(result);
+    }
+    useEffect(()=>{
+        fn();
+    },[]);
+    return <div><div>;
+}
+```
 
 ### 2. components 폴더
 

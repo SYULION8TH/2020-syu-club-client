@@ -6,9 +6,23 @@ import SearchForm from './SearchForm';
 
 import { Navbar, Card, PostCard } from '../../components';
 
+import { QnaAPI } from '../../api';
+import { useEffect } from 'react';
+
 const MainView = () => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
+
+    const fn = {
+        test: async () => {
+            const result = await QnaAPI.fetchQna();
+            console.log(result);
+        },
+    };
+
+    useEffect(() => {
+        fn.test();
+    }, []);
     return (
         <div
             className={`main-container`}
