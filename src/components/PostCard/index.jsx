@@ -30,7 +30,7 @@ const index = (props) => {
 
 index.propTypes = {
     title: PropTypes.string.isRequired,
-    date: PropTypes.object.isRequired | PropTypes.string.isRequired,
+    date: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.instanceOf(Date).isRequired]),
     imgUrl: PropTypes.string,
 };
 
