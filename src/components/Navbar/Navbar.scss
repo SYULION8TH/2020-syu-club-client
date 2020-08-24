@@ -66,6 +66,15 @@
                     }
                 }
             }
+
+            &.menu-container {
+                display: flex;
+                flex-direction: column;
+
+                .menu-link-item:not(:first-child) {
+                    margin-top: 10px;
+                }
+            }
         }
     }
 }
