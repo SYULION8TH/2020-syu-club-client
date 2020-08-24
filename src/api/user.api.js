@@ -1,10 +1,10 @@
 import axios from '../lib/axios';
 
-export const fetchQna = async (clubId) => {
+export const getUserInfo = async () => {
     const host = process.env.REACT_APP_API_HOST;
     const response = await axios({
         method: 'GET',
-        url: `${host}/qna/`,
+        url: `${host}/user/`,
     });
 
     return response.data;

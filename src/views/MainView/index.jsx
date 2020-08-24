@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './scss/MainView.scss';
 
 import AnimatedBackground from './AnimatedBackground';
@@ -7,18 +7,33 @@ import SearchForm from './SearchForm';
 import { Navbar, Card, PostCard } from '../../components';
 
 import { QnaAPI } from '../../api';
-import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getUserInfo } from '../../modules/User';
 
 const MainView = () => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
+    const dispatch = useDispatch();
+
+    const user = useSelector((state) => state.user.info);
 
     const fn = {
         test: async () => {
+            console.log(localStorage);
             const result = await QnaAPI.fetchQna();
             console.log(result);
+            dispatch(getUserInfo());
         },
     };
+
+    useEffect(() => {
+        if (user.error) {
+            console.log(user.error.response.status);
+        } else {
+            console.log(user.data);
+        }
+    }, [user.loading]);
 
     useEffect(() => {
         fn.test();

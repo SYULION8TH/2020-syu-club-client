@@ -1,5 +1,5 @@
 import * as ClubsAPI from './clubs.api';
-import * as AccountsAPI from './accounts.api';
 import * as QnaAPI from './qna.api';
+import * as UserAPI from './user.api';
 
-export { ClubsAPI, AccountsAPI, QnaAPI };
+export { ClubsAPI, QnaAPI, UserAPI };
