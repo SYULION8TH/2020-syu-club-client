@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../lib/axios';
 
 export async function getSomething() {
     const host = process.env.REACT_APP_API_HOST;
