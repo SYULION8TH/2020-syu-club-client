@@ -7,12 +7,19 @@ import './scss/common.scss';
 // VIEWS
 import MainView from './views/MainView';
 import NotFoundView from './views/NotFoundView';
+import LoginView from './views/LoginView';
+import UserProfileView from './views/UserProfileView';
+import ClubListView from './views/ClubListView';
+import ClubDetailView from './views/ClubListView';
+import QnaListView from './views/QnaListView';
+import QnaDetailView from './views/QnaDetailView';
+import PostListView from './views/PostListView';
+import PostDetailView from './views/PostDetailView';
 
 // ROUTER
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // REDUX
-
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 // import Thunk from 'redux-thunk';
@@ -53,6 +60,14 @@ ReactDOM.render(
                 <>
                     <Switch>
                         <Route exact path="/" component={MainView}></Route>
+                        <Route path="/login" component={LoginView}></Route>
+                        <Route path="/profile" component={UserProfileView}></Route>
+                        <Route path="/club/list" component={ClubListView}></Route>
+                        <Route path="/club/:club_id" component={ClubDetailView}></Route>
+                        <Route path="/club/:club_id/qna" component={QnaListView}></Route>
+                        <Route path="/club/:club_id/qna/:qna_id" component={QnaDetailView}></Route>
+                        <Route path="/post" component={PostListView}></Route>
+                        <Route path="/post/:post_id" component={PostDetailView}></Route>
                         <Route path="*" component={NotFoundView}></Route>
                     </Switch>
                 </>
