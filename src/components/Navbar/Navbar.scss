@@ -66,6 +66,40 @@
                     }
                 }
             }
+
+            &.menu-container {
+                display: flex;
+                flex-direction: column;
+
+                .menu-link-item:not(:first-child) {
+                    margin-top: 10px;
+                }
+            }
+
+            &.club-list-container {
+                .club-list-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-items: flex-start;
+                    align-content: center;
+
+                    .club-list-title {
+                        color: $colors-white;
+                        font-weight: 400;
+                        font-size: 1rem;
+                        margin: 5px 0;
+                    }
+                    .club-list {
+                        .club-list-item {
+                            margin-left: 10px;
+                            font-weight: 100;
+                            &:not(:last-child) {
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

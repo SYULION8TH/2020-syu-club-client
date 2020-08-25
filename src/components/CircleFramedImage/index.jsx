@@ -14,7 +14,7 @@ const CircleFramedImage = (props) => {
                       }
                     : {}
             }
-            class={`__circle-framed-image-container ${
+            className={`__circle-framed-image-container ${
                 isNullOrUndefined(props.className) ? '' : props.className
             }`}
         >

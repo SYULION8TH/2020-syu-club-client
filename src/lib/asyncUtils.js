@@ -25,7 +25,11 @@ export const createPromiseSagaById = (type, promiseCreator) => {
             const payload = yield call(promiseCreator, action.payload);
             yield put({ type: SUCCESS, payload, meta: id });
         } catch (e) {
-            yield put({ type: ERROR, error: e, meta: id });
+            yield put({
+                type: ERROR,
+                error: e,
+                meta: id,
+            });
         }
     };
 };
