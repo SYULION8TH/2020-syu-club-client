@@ -26,7 +26,7 @@ export const Navbar = (props) => {
         }
     }, []);
 
-    const [menuOpened, setMenuOpened] = useState(true);
+    const [menuOpened, setMenuOpened] = useState(false);
     return (
         <div className={`navbar-container`}>
             <AnimatedMenuIcon isOpened={menuOpened} setIsOpened={(v) => setMenuOpened(v)} />
