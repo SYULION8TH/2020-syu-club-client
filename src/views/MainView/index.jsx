@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './scss/MainView.scss';
+import { ClubsAPI } from '../../api';
 
 import AnimatedBackground from './AnimatedBackground';
 import SearchForm from './SearchForm';
@@ -9,6 +10,8 @@ import { Navbar, Card, PostCard } from '../../components';
 const MainView = () => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
+
+    useEffect(()=>{ClubsAPI.getClubs()})
     return (
         <div
             className={`main-container`}
