@@ -48,6 +48,7 @@ const SideMenu = (props) => {
         } else {
             console.log('requested..');
         }
+        return () => {};
     }, [props.info.loading]);
 
     return (
