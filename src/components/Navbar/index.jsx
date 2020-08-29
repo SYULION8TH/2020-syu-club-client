@@ -9,28 +9,13 @@ import { getUserInfo } from '../../modules/User';
 import { isNullOrUndefined } from 'util';
 
 export const Navbar = (props) => {
-    const { info } = useSelector((state) => state.user);
-    const dispatch = useDispatch();
-
-    const fn = {
-        user: {
-            fetch: () => {
-                dispatch(getUserInfo());
-            },
-        },
-    };
-
-    useEffect(() => {
-        if (isNullOrUndefined(info.data)) {
-            fn.user.fetch();
-        }
-    }, []);
+    
 
     const [menuOpened, setMenuOpened] = useState(false);
     return (
         <div className={`navbar-container`}>
             <AnimatedMenuIcon isOpened={menuOpened} setIsOpened={(v) => setMenuOpened(v)} />
-            <SideMenu isOpened={menuOpened} info={info} />
+            <SideMenu isOpened={menuOpened} />
         </div>
     );
 };

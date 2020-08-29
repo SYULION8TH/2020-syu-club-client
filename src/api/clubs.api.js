@@ -19,3 +19,5 @@ export async function getClubs() {
 
     return response.data;
 }
+
+export async function getClub() {}
