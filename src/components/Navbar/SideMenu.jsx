@@ -7,6 +7,31 @@ import { useEffect } from 'react';
 import { getUserInfo } from '../../modules/User';
 import { isNullOrUndefined } from 'util';
 
+const InterestClubsList = (props) => {
+    if (
+        isNullOrUndefined(props.data) ||
+        isNullOrUndefined(props.data.user) ||
+        props.data.user.interest_club.length <= 0
+    ) {
+        return <></>;
+    } else {
+        return (
+            <div className="club-list-container  navbar-content-wrapper">
+                <div className="club-list-wrapper">
+                    <p className="club-list-title">관심 동아리</p>
+                    <ul className="club-list">
+                        <li className="club-list-item">
+                            <Link className="club-list-item-link" to="">
+                                동아리 1
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        );
+    }
+};
+
 const SideMenu = (props) => {
     useEffect(() => {
         if (!isNullOrUndefined(props.info.error)) {
@@ -57,45 +82,14 @@ const SideMenu = (props) => {
                 <Link className="menu-link-item" to="/">
                     메인화면
                 </Link>
-                <Link className="menu-link-item" to="/clubs">
+                <Link className="menu-link-item" to="/club">
                     동아리 목록
                 </Link>
-                <Link className="menu-link-item" to="/posts">
+                <Link className="menu-link-item" to="/post">
                     활동 포스팅 목록
                 </Link>
             </div>
-            <div className="club-list-container  navbar-content-wrapper">
-                <div className="club-list-wrapper">
-                    <p className="club-list-title">관심 동아리</p>
-                    <ul className="club-list">
-                        <li className="club-list-item">
-                            <Link className="club-list-item-link" to="">
-                                동아리 1
-                            </Link>
-                        </li>
-                        <li className="club-list-item">
-                            <Link className="club-list-item-link" to="">
-                                동아리 1
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="club-list-wrapper">
-                    <p className="club-list-title">가입 동아리</p>
-                    <ul className="club-list">
-                        <li className="club-list-item">
-                            <Link className="club-list-item-link" to="">
-                                동아리 1
-                            </Link>
-                        </li>
-                        <li className="club-list-item">
-                            <Link className="club-list-item-link" to="">
-                                동아리 1
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <InterestClubsList data={props.info.data} />
         </div>
     );
 };
