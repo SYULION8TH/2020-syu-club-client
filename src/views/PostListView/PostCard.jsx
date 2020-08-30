@@ -1,20 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import PostDetailView from '../PostDetailView'
 import './scss/PostCard.scss';
 
 //TODO
 //props type 정의하기
-//Link 수정하기
+//링크 수정
+//게시글 수 제한하기
 const PostCard = (props) => {
     return (
-        <Link to="/post/1">
+        <Link to={`/post/${props.id}`}>
             <div className="post-card-wrapper">
-                <div className="post-card-img" style={{backgroundColor: "#904e87"}}>
+                <div className="post-card-img">
                     <img
                         src={props.img}
                         alt={`${props.title} 이미지`}
-                        
                     />
                 </div>
                 <div className="post-card-content">

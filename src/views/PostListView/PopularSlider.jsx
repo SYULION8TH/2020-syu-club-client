@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 import './scss/PopularSlider.scss'
 import { PostAPI } from '../../api';
 
-
 const PopularSlider = () => {
     const[popPosts, setPopPosts] = useState([]);
 
     const fetchPopPost = async ()=>{
         try{
             const result = await PostAPI.getPopularPosts(); 
-            setPopPosts([...result]);
+            setPopPosts([...result.results]);
             console.log(result);
         } catch(e){
             console.log(e);
@@ -35,11 +34,11 @@ const PopularSlider = () => {
                     
                     {popPosts.map(src=>(
                         <div
-                        key={src}
+                        key={src.post_id}
                         className="popPost-card"
                         style={{
-                        // backgroundImage: `url(${src.post_img_url})`
-                        backgroundColor: "#904e87"
+                        backgroundImage: `url(${src.post_img_url})`,
+                        backgroundColor: "white"
                         }}>
                             <p className="popPost-title">{src.post_title}</p>
                             <p className="popPost-club">{src.club}</p>

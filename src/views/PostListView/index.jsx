@@ -15,9 +15,8 @@ const PostListView = () => {
     const fetchPost = async ()=>{
         try{
             const result = await PostAPI.getPosts(); 
-            setPosts([...result]);
-            console.log(result);//1번
-            //2번
+            setPosts([...result.results]);
+            
         } catch(e){
             console.log(e);
         }
@@ -41,7 +40,7 @@ const PostListView = () => {
                     <PostSearch>동아리 포스팅</PostSearch>
                 </div>
             </div>           
-            <PopularSlider/>
+            <PopularSlider />
             <div className="post-list-container">
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
@@ -49,8 +48,8 @@ const PostListView = () => {
                         <PostCard
                         key={post.post_id}
                         title={post.post_title}
-                        
-                        // img={post.post_img_url}
+                        id={post.post_id}
+                        img={post.post_img_url}
                         date={moment(post.created_at).format('YYYY.MM.DD')}
                         club="likelion"
                         />
