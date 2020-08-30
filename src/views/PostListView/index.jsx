@@ -11,11 +11,12 @@ import './scss/PostListView.scss';
 
 const PostListView = () => {
     const[posts, setPosts] = useState([]);
-
+    let keyWord = [];
     const fetchPost = async ()=>{
         try{
-            const result = await PostAPI.getPosts(); 
+            const result = await PostAPI.getPosts(keyWord); 
             setPosts([...result.results]);
+            console.log(posts)
             
         } catch(e){
             console.log(e);
@@ -32,15 +33,21 @@ const PostListView = () => {
         return null;
     }
 
+    const searchFunc = (text)=>{
+        console.log(text);
+        keyWord = text;
+        fetchPost();
+    }
+
     return (
         <div className="post-list-main-container">
             <Navbar />
             <div className="bg-container">
                 <div className="search-container">
-                    <PostSearch>동아리 포스팅</PostSearch>
+                    <PostSearch searchFunc = {searchFunc}>동아리 포스팅</PostSearch>
                 </div>
             </div>           
-            <PopularSlider />
+            <PopularSlider/>
             <div className="post-list-container">
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
@@ -51,7 +58,7 @@ const PostListView = () => {
                         id={post.post_id}
                         img={post.post_img_url}
                         date={moment(post.created_at).format('YYYY.MM.DD')}
-                        club="likelion"
+                        club={post.club_name}
                         />
                     ))}
                     
