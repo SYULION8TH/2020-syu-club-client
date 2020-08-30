@@ -11,32 +11,23 @@ import './scss/PostListView.scss';
 
 const PostListView = () => {
     const[posts, setPosts] = useState([]);
-    let keyWord = [];
+    const[values, setValues] = useState('');
+ 
     const fetchPost = async ()=>{
         try{
-            const result = await PostAPI.getPosts(keyWord); 
-            setPosts([...result.results]);
-            console.log(posts)
-            
+            const result = await PostAPI.getPosts(values); 
+            setPosts([...result.results]);           
         } catch(e){
             console.log(e);
         }
-
     };
 
     useEffect(()=>{
         fetchPost();
-        console.log(posts);
-    },[]);
+    },[values]);
 
     if(!posts) {
         return null;
-    }
-
-    const searchFunc = (text)=>{
-        console.log(text);
-        keyWord = text;
-        fetchPost();
     }
 
     return (
@@ -44,7 +35,7 @@ const PostListView = () => {
             <Navbar />
             <div className="bg-container">
                 <div className="search-container">
-                    <PostSearch searchFunc = {searchFunc}>동아리 포스팅</PostSearch>
+                    <PostSearch setValues = {setValues} values={values}>동아리 포스팅</PostSearch>
                 </div>
             </div>           
             <PopularSlider/>

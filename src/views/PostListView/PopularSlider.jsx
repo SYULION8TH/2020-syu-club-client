@@ -6,7 +6,7 @@ import { getPopularPosts } from '../../api/posts.api';
 
 const PopularSlider = () => {
     const[popPosts, setPopPosts] = useState([]);
-
+ 
     const fetchPopPost = async ()=>{
         try{
             const result = await PostAPI.getPopularPosts(); 
