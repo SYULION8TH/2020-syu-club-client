@@ -15,6 +15,7 @@ import QnaListView from './views/QnaListView';
 import QnaDetailView from './views/QnaDetailView';
 import PostListView from './views/PostListView';
 import PostDetailView from './views/PostDetailView';
+import { Navbar } from './components';
 
 // ROUTER
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -58,11 +59,12 @@ ReactDOM.render(
         <Provider store={store}>
             <Router history={customHistory}>
                 <>
+                    <Navbar />
                     <Switch>
                         <Route exact path="/" component={MainView}></Route>
                         <Route path="/login" component={LoginView}></Route>
                         <Route path="/profile" component={UserProfileView}></Route>
-                        <Route path="/club/list" component={ClubListView}></Route>
+                        <Route path="/club" component={ClubListView}></Route>
                         <Route path="/club/:club_id" component={ClubDetailView}></Route>
                         <Route path="/club/:club_id/qna" component={QnaListView}></Route>
                         <Route path="/club/:club_id/qna/:qna_id" component={QnaDetailView}></Route>

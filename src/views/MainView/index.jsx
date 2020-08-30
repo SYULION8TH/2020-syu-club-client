@@ -5,13 +5,15 @@ import { ClubsAPI } from '../../api';
 import AnimatedBackground from './AnimatedBackground';
 import SearchForm from './SearchForm';
 
-import { Navbar, Card, PostCard } from '../../components';
+import { Card, PostCard } from '../../components';
 
 const MainView = () => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
 
-    useEffect(()=>{ClubsAPI.getClubs()})
+    useEffect(() => {
+        ClubsAPI.getClubs();
+    }, []);
     return (
         <div
             className={`main-container`}
@@ -20,7 +22,6 @@ const MainView = () => {
                 setCoverOpacity(calculated > 1 ? 1 : calculated);
             }}
         >
-            <Navbar />
             <AnimatedBackground coverOpacity={coverOpacity} />
             <SearchForm />
             <div className="contents-container">

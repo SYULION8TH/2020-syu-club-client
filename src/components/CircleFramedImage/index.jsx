@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { isNullOrUndefined } from 'util';
+import { MdPerson } from 'react-icons/md';
 import './CircleFramedImage.scss';
 
 const CircleFramedImage = (props) => {
@@ -19,7 +20,15 @@ const CircleFramedImage = (props) => {
             }`}
         >
             <div className="__circle-framed-image-wrapper">
-                <img className="__circle-framed-image" src={props.imgUrl} alt={props.imgAlt} />
+                {!isNullOrUndefined(props.imgUrl) && props.imgUrl !== '' ? (
+                    <img className="__circle-framed-image" src={props.imgUrl} alt={props.imgAlt} />
+                ) : (
+                    <div className="__circle-framed-image-placeholder">
+                        <span className="__circle-framed-image-placeholder-icon">
+                            <MdPerson></MdPerson>
+                        </span>
+                    </div>
+                )}
             </div>
         </div>
     );
