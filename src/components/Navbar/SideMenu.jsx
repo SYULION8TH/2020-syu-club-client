@@ -33,46 +33,56 @@ const InterestClubsList = (props) => {
 };
 
 const SideMenu = (props) => {
+    const { info } = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+
+    const fn = {
+        user: {
+            fetch: () => {
+                dispatch(getUserInfo());
+            },
+        },
+    };
+
     useEffect(() => {
-        if (!isNullOrUndefined(props.info.error)) {
-            if (
-                props.info.error.response.status === 401 ||
-                props.info.error.response.status === 403
-            ) {
-                // 로그인이 안된 경우
-            } else {
-                // 실제 통신에 에러가 발생한 경우
-            }
-        } else if (!isNullOrUndefined(props.info.data)) {
-            console.log(props.info.data);
+        if (isNullOrUndefined(info.data)) {
+            fn.user.fetch();
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!isNullOrUndefined(info.error)) {
+            // if (info.error.response.status === 401 || info.error.response.status === 403) {
+            // 로그인이 안된 경우
+            // } else {
+            // 실제 통신에 에러가 발생한 경우
+            // }
+        } else if (!isNullOrUndefined(info.data)) {
+            console.log(info.data);
         } else {
             console.log('requested..');
         }
         return () => {};
-    }, [props.info.loading]);
+    }, [info.loading]);
 
     return (
         <div className={`navbar-content-container ${props.isOpened ? 'active' : ''}`}>
             <div className="user-info-container navbar-content-wrapper">
                 <CircleFramedImage
-                    imgUrl={
-                        isNullOrUndefined(props.info.data)
-                            ? ''
-                            : props.info.data.user_profile.profile
-                    }
+                    imgUrl={isNullOrUndefined(info.data) ? '' : info.data.user_profile.profile}
                     imgAlt={
-                        isNullOrUndefined(props.info.data)
+                        isNullOrUndefined(info.data)
                             ? '미 로그인 유저 이미지'
-                            : `${props.info.data.user.username} 프로필 이미지`
+                            : `${info.data.user.username} 프로필 이미지`
                     }
                     width={50}
                     height={50}
                 />
                 <div className="user-info-text">
-                    {!isNullOrUndefined(props.info.data) ? (
+                    {!isNullOrUndefined(info.data) ? (
                         <>
-                            <p className="user-info-name">{props.info.data.user.username}</p>
-                            <p className="user-info-email">{props.info.data.user.email}</p>
+                            <p className="user-info-name">{info.data.user.username}</p>
+                            <p className="user-info-email">{info.data.user.email}</p>
                         </>
                     ) : (
                         <p className="user-info-name">로그인이 필요합니다</p>
@@ -90,13 +100,12 @@ const SideMenu = (props) => {
                     활동 포스팅 목록
                 </Link>
             </div>
-            <InterestClubsList data={props.info.data} />
+            <InterestClubsList data={info.data} />
         </div>
     );
 };
 
 SideMenu.propTypes = {
-    info: PropTypes.object.isRequired,
     isOpened: PropTypes.bool.isRequired,
 };
 

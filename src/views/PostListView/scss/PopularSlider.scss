@@ -1,0 +1,57 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+.popPost-slider-wrap {
+    position: relative;
+    top: -100px;
+}
+.popPost-container {
+    display: flex;
+    overflow-x: scroll;
+
+    width: 100%;
+}
+.popPost-sliderHeader {
+    width: 100%;
+    color: #ffd83a;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    font-size: 1.3rem;
+}
+a{
+    &:first-child {
+        margin-left: 55px;
+    }
+    .popPost-card {
+        flex-shrink: 0;
+        width: 150px;
+        height: 200px;
+        border-radius: 10px;
+        margin-left: 15px;
+        margin-bottom: 10px;
+        box-shadow: 6px 7px 14px 0px #00000030;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    
+        .popPost-title {
+            width: 100%;
+            font-size: 1em;
+            color: $colors-white;
+            padding-left: 10px;
+        }
+        .popPost-club {
+            width: 100%;
+            color: rgba(246, 246, 246, 0.8);
+            font-size: 0.8em;
+            padding: 0px 0px 10px 10px;
+        }
+    }
+}
+
