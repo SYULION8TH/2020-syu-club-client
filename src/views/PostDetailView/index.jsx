@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PostDetailView = () => {
+const index = () => {
     return (
         <div>
-            <p>Post Detail View</p>
+            준비중
         </div>
     );
 };
 
-export default PostDetailView;
+export default index;

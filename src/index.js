@@ -68,7 +68,7 @@ ReactDOM.render(
                         <Route path="/club/:club_id" component={ClubDetailView}></Route>
                         <Route path="/club/:club_id/qna" component={QnaListView}></Route>
                         <Route path="/club/:club_id/qna/:qna_id" component={QnaDetailView}></Route>
-                        <Route path="/post" component={PostListView}></Route>
+                        <Route path="/post" exact component={PostListView}></Route>
                         <Route path="/post/:post_id" component={PostDetailView}></Route>
                         <Route path="*" component={NotFoundView}></Route>
                     </Switch>
