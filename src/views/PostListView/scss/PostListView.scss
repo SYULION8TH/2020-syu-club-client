@@ -1,0 +1,48 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+#root {
+    overflow: hidden;
+}
+
+.post-list-main-container {
+    width: 100%;
+    height: 100%;
+    margin: 0em;
+    padding: 0;
+    z-index: $view-z-index;
+    overflow-x: hidden; // 인기동아리포스팅 카드 밀림방지
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    
+    .search-container{
+        box-sizing: border-box;
+        padding: 90px 25px 0px 25px;
+        height: 100%;
+    }
+    .bg-container {
+        z-index: $background-z-index;
+        background-image: url('../../../assets/img/post-bg@2x.png');
+        height: 40%;
+        background-size: cover;
+        background-position: 0px 40%;
+        
+    }
+    .post-list-container {
+        height: 60%;
+        padding-top: 25px ;
+        //공백이 생기는 이유를 몰라서 응급처치
+        position: relative;
+        top: -100px;
+    }
+    .post-list{
+        height:100%;
+        box-sizing: border-box;
+        padding: 0px 25px 11px 25px; //캐러셀도입후 수정예정
+
+        .post-list-head{
+            color:$colors-purple;
+            font-size: 1.3em;
+            padding-bottom: 15px;
+        }
+    }
+}
