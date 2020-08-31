@@ -3,7 +3,8 @@ import './scss/PopularSlider.scss'
 import { PostAPI } from '../../api';
 import {Link} from 'react-router-dom';
 import { getPopularPosts } from '../../api/posts.api';
-
+//TODO
+//1. 대체이미지 수정
 const PopularSlider = () => {
     const[popPosts, setPopPosts] = useState([]);
  
@@ -11,7 +12,7 @@ const PopularSlider = () => {
         try{
             const result = await PostAPI.getPopularPosts(); 
             setPopPosts([...result.results]);
-            console.log(result);
+            
         } catch(e){
             console.log(e);
         }
@@ -20,7 +21,7 @@ const PopularSlider = () => {
 
     useEffect(()=>{
         fetchPopPost();
-        console.log(popPosts);
+        
     },[]);
 
     if(!popPosts) {
@@ -41,7 +42,7 @@ const PopularSlider = () => {
                             className="popPost-card"
                             style={{
                             backgroundImage: `url(${src.post_img_url})`,
-                            backgroundColor: "white"
+                            backgroundColor: "white" //대체이미지 수정
                             }}>
                                 <p className="popPost-title">{src.post_title}</p>
                                 <p className="popPost-club">{src.club}</p>
