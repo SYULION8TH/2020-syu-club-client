@@ -11,9 +11,17 @@ const MainView = () => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
 
-    useEffect(() => {
-        ClubsAPI.getClubs();
-    }, []);
+    const [famousClubs, setFamousClubs] = useState([]);
+
+    const fn = {
+        famous: {
+            fetch: () => {
+                // const result = await
+            },
+        },
+    };
+
+    useEffect(() => {}, []);
     return (
         <div
             className={`main-container`}
