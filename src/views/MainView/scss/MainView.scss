@@ -12,7 +12,7 @@ h1 {
     width: 100%;
     min-height: 100%;
     margin: 0em;
-    padding: $content-spacing;
+    // padding: $content-spacing;
 
     z-index: $view-z-index;
 
@@ -29,6 +29,12 @@ h1 {
             width: 100%;
             max-width: 100%;
             padding-top: $navbar-height + $content-spacing;
+
+            .famous-clubs-list-container {
+                display: flex;
+                overflow-x: auto;
+                margin-right: 10px;
+            }
         }
     }
 }

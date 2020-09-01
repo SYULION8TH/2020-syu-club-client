@@ -1,0 +1,72 @@
+@import '../../scss/variables';
+
+.__club-card-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    flex-shrink: 0;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.5);
+    margin: 5px;
+    border-radius: 5px;
+    .__club-card-header-wrapper {
+        width: 100%;
+        height: 150px;
+        background-color: $colors-white;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .__club-card-header-placeholder {
+            width: 100%;
+            height: 100%;
+            display: none;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-image: linear-gradient(125deg, #ef959d 0%, #912f74 50%, #1c1c73 100%);
+
+            svg {
+                font-size: 3rem;
+                color: $colors-white;
+            }
+        }
+
+        &.no-img {
+            img {
+                display: none;
+            }
+            .__club-card-header-placeholder {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .__club-card-content-wrapper {
+        background-color: $colors-white;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        .__club-card-name {
+            margin: 5px 10px;
+            color: $colors-dark;
+            font-size: 0.8rem;
+        }
+        .__club-card-footer-wrapper {
+            margin: 5px 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .__club-card-footer-text {
+                color: $colors-light-gray;
+                font-size: 0.8rem;
+                svg {
+                    color: $colors-light-gray;
+                }
+            }
+        }
+    }
+}
