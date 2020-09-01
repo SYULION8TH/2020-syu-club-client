@@ -5,23 +5,35 @@ import { ClubsAPI } from '../../api';
 import AnimatedBackground from './AnimatedBackground';
 import SearchForm from './SearchForm';
 
-import { Card, PostCard } from '../../components';
+import { Card, PostCard, ClubCard } from '../../components';
+
+import { isNullOrUndefined } from 'util';
 
 const MainView = () => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
 
-    const [famousClubs, setFamousClubs] = useState([]);
+    const [famousClubs, setFamousClubs] = useState(null);
 
     const fn = {
         famous: {
-            fetch: () => {
-                // const result = await
+            fetch: async () => {
+                const response = await ClubsAPI.getFamousClubs({
+                    limit: 10,
+                });
+                setFamousClubs(response);
             },
         },
     };
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        fn.famous.fetch();
+    }, []);
+
+    useEffect(() => {
+        console.log(famousClubs);
+    }, [famousClubs]);
+
     return (
         <div
             className={`main-container`}
@@ -34,8 +46,23 @@ const MainView = () => {
             <SearchForm />
             <div className="contents-container">
                 <div className="contents-wrapper">
-                    <Card title="관심 동아리 최근 포스트">
-                        <PostCard title="테스트" date={'2020-12-10'} />
+                    <Card
+                        title="관심 동아리 최근 포스트"
+                        wrapperClassName="famous-clubs-list-container"
+                    >
+                        {!isNullOrUndefined(famousClubs) ? (
+                            famousClubs.results.map((item, idx) => (
+                                <ClubCard
+                                    key={idx}
+                                    name={item.club_name}
+                                    category={"카테고리"}
+                                    imgUrl={item.club_logo_url}
+                                    likeCount={item.like_count}
+                                />
+                            ))
+                        ) : (
+                            <></>
+                        )}
                     </Card>
                     <Card title="관심 동아리 최근 포스트">
                         <PostCard

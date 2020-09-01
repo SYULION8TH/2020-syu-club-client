@@ -22,11 +22,12 @@ export async function getClubs() {
 
 export async function getClub() {}
 
-export async function getFamousClubs() {
+export async function getFamousClubs(params) {
     const host = process.env.REACT_APP_API_HOST;
     const response = await axios({
         method: 'GET',
         url: `${host}/clubs/famous`,
+        params: params,
     });
 
     return response.data;
