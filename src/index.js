@@ -64,10 +64,10 @@ ReactDOM.render(
                         <Route exact path="/" component={MainView}></Route>
                         <Route path="/login" component={LoginView}></Route>
                         <Route path="/profile" component={UserProfileView}></Route>
-                        <Route path="/club" component={ClubListView}></Route>
-                        <Route path="/club/:club_id" component={ClubDetailView}></Route>
-                        <Route path="/club/:club_id/qna" component={QnaListView}></Route>
+                        <Route exact path="/club" component={ClubListView}></Route>
                         <Route path="/club/:club_id/qna/:qna_id" component={QnaDetailView}></Route>
+                        <Route exact path="/club/:club_id/qna" component={QnaListView}></Route>
+                        <Route path="/club/:club_id" component={ClubDetailView}></Route>
                         <Route path="/post" exact component={PostListView}></Route>
                         <Route path="/post/:post_id" component={PostDetailView}></Route>
                         <Route path="*" component={NotFoundView}></Route>
