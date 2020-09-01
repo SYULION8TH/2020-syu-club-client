@@ -20,11 +20,18 @@ const InterestClubsList = (props) => {
                 <div className="club-list-wrapper">
                     <p className="club-list-title">관심 동아리</p>
                     <ul className="club-list">
-                        <li className="club-list-item">
-                            <Link className="club-list-item-link" to="">
-                                동아리 1
-                            </Link>
-                        </li>
+                        {props.data.user.interest_club.map((item, idx) => {
+                            return (
+                                <li key={item.interest_club_id} className="club-list-item">
+                                    <Link
+                                        className="club-list-item-link"
+                                        to={`/club/${item.club.club_id}`}
+                                    >
+                                        {item.club.club_name}
+                                    </Link>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </div>
