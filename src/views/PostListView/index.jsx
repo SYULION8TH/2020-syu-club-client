@@ -8,28 +8,31 @@ import PopularSlider from './PopularSlider';
 
 import './scss/PostListView.scss';
 
-
+//TODO
+//1. 인피니티스크롤
 const PostListView = () => {
     const[posts, setPosts] = useState([]);
     const[values, setValues] = useState('');
- 
+
+    //포스트 리스트 붙이기
     const fetchPost = async ()=>{
         try{
             const result = await PostAPI.getPosts(values); 
-            setPosts([...result.results]);           
+            setPosts([...result.results]); 
+                  
         } catch(e){
             console.log(e);
         }
     };
-
-    useEffect(()=>{
-        fetchPost();
-    },[values]);
-
+    
+     useEffect(()=>{
+         fetchPost();
+     },[values]);
+    
     if(!posts) {
         return null;
     }
-
+    
     return (
         <div className="post-list-main-container">
             <Navbar />
