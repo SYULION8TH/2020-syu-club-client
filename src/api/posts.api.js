@@ -4,7 +4,7 @@ export const getPosts = async (search) => {
     const host = process.env.REACT_APP_API_HOST;
     const response = await axios({
         method: 'GET',
-        url: `${host}/posts?limit=10&search=${search}`,
+        url: `${host}/posts?search=${search}`,
     });
 
     return response.data;

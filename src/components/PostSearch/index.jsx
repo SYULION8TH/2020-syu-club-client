@@ -3,7 +3,9 @@ import './postSearch.scss';
 import { GoSearch } from 'react-icons/go';
 import { BiX } from 'react-icons/bi';
 
-
+//TODO
+//props type정의하기
+//usecallback쓸지말지 정하기
 const PostSearch = (props) => {
     const [value, setValue] = useState('');
 
