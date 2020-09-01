@@ -69,7 +69,11 @@ const SideMenu = (props) => {
         <div className={`navbar-content-container ${props.isOpened ? 'active' : ''}`}>
             <div className="user-info-container navbar-content-wrapper">
                 <CircleFramedImage
-                    imgUrl={isNullOrUndefined(info.data) ? '' : info.data.user_profile.profile}
+                    imgUrl={
+                        isNullOrUndefined(info.data) || isNullOrUndefined(info.data.user_profile)
+                            ? ''
+                            : info.data.user_profile.profile
+                    }
                     imgAlt={
                         isNullOrUndefined(info.data)
                             ? '미 로그인 유저 이미지'
