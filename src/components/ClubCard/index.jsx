@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './ClubCard.scss';
 
-import { GrView, GrLike } from 'react-icons/gr';
+import { GrLike } from 'react-icons/gr';
 import { BsCardImage } from 'react-icons/bs';
 import { useEffect } from 'react';
 import { isNullOrUndefined } from 'util';
@@ -15,7 +15,14 @@ const ClubCard = (props) => {
         setHasImage(!isNullOrUndefined(props.imgUrl) && props.imgUrl !== '');
     }, [props, props.imgUrl]);
     return (
-        <div className="__club-card-container">
+        <div
+            className="__club-card-container"
+            onClick={() => {
+                if (!isNullOrUndefined(props.onClick)) {
+                    props.onClick();
+                }
+            }}
+        >
             <div className={`__club-card-header-wrapper ${hasImage ? '' : 'no-img'}`}>
                 <img src={props.imgUrl} alt={`${props.name} 의 로고 이미지`} />
                 <div className="__club-card-header-placeholder">
@@ -38,9 +45,10 @@ const ClubCard = (props) => {
 ClubCard.propTypes = {
     className: PropTypes.string,
     name: PropTypes.string.isRequired,
-    // category: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
     imgUrl: PropTypes.string,
     likeCount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    onClick: PropTypes.func,
 };
 
 export default ClubCard;
