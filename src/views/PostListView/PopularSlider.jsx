@@ -4,7 +4,7 @@ import { PostAPI } from '../../api';
 import {Link} from 'react-router-dom';
 import { getPopularPosts } from '../../api/posts.api';
 //TODO
-//1. 대체이미지 수정
+//1. props default 이미지 정의하기
 const PopularSlider = () => {
     const[popPosts, setPopPosts] = useState([]);
  

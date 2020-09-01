@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import moment from 'moment';
 import { PostAPI } from '../../api';
 import { Navbar } from '../../components';
@@ -10,6 +10,7 @@ import './scss/PostListView.scss';
 
 //TODO
 //1. 인피니티스크롤
+//2. 대체이미지 삽입
 const PostListView = () => {
     const[posts, setPosts] = useState([]);
     const[values, setValues] = useState('');
@@ -18,17 +19,36 @@ const PostListView = () => {
     const fetchPost = async ()=>{
         try{
             const result = await PostAPI.getPosts(values); 
-            setPosts([...result.results]); 
-                  
+            setPosts([...result]); 
+            
+            console.log(posts);
+              
         } catch(e){
             console.log(e);
         }
     };
-    
-     useEffect(()=>{
-         fetchPost();
-     },[values]);
-    
+    useEffect(()=>{
+        
+        fetchPost();
+    },[values]);
+    // // 스크롤 이벤트 핸들러
+    // const handleScroll = () => {
+    //     const scrollHeight = document.documentElement.scrollHeight;
+    //     const scrollTop = document.documentElement.scrollTop;
+    //     const clientHeight = document.documentElement.clientHeight;
+    //     console.log("scroll");
+    //     if (scrollTop + clientHeight === scrollHeight) {
+    //         fetchPost();
+    //     }
+    // };
+    // useEffect(() => {
+    //     // scroll event listener 등록
+    //     window.addEventListener("scroll", handleScroll, true);
+    //     return () => {
+    //       // scroll event listener 해제
+    //       window.removeEventListener("scroll", handleScroll);
+    //     };
+    //   });
     if(!posts) {
         return null;
     }
