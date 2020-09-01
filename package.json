@@ -26,7 +26,8 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "prod": "react-scripts build && rm -rf ../2020-syu-club-server/client && mv ./build ../2020-syu-club-server/client"
     },
     "eslintConfig": {
         "extends": "react-app"
