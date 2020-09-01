@@ -4,6 +4,7 @@ import './scss/PostCard.scss';
 
 //TODO
 //props type 정의하기
+//props default 이미지 정의하기
 //게시글 로딩 속도 해결
 const PostCard = (props) => {
     

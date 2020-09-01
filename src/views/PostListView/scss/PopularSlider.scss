@@ -21,10 +21,7 @@
     padding-bottom: 10px;
     font-size: 1.3rem;
 }
-a{
-    &:first-child {
-        margin-left: 55px;
-    }
+
     .popPost-card {
         flex-shrink: 0;
         width: 150px;
@@ -52,6 +49,6 @@ a{
             font-size: 0.8em;
             padding: 0px 0px 10px 10px;
         }
-    }
+  
 }
 
