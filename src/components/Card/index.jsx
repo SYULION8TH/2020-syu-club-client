@@ -13,7 +13,13 @@ const index = (props) => {
                     <p className="__card-container-header-text">{props.title}</p>
                 </div>
             )}
-            <div className="__card-container-content-wrapper">{props.children}</div>
+            <div
+                className={`__card-container-content-wrapper ${
+                    !isNullOrUndefined(props.wrapperClassName) ? props.wrapperClassName : ''
+                }`}
+            >
+                {props.children}
+            </div>
         </div>
     );
 };
@@ -21,6 +27,7 @@ const index = (props) => {
 index.propTypes = {
     title: PropTypes.string,
     className: PropTypes.string,
+    wrapperClassName: PropTypes.string,
 };
 
 export default index;
