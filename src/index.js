@@ -10,7 +10,7 @@ import NotFoundView from './views/NotFoundView';
 import LoginView from './views/LoginView';
 import UserProfileView from './views/UserProfileView';
 import ClubListView from './views/ClubListView';
-import ClubDetailView from './views/ClubListView';
+import ClubDetailView from './views/ClubDetailView';
 import QnaListView from './views/QnaListView';
 import QnaDetailView from './views/QnaDetailView';
 import PostListView from './views/PostListView';
@@ -65,11 +65,18 @@ ReactDOM.render(
                         <Route path="/login" component={LoginView}></Route>
                         <Route path="/profile" component={UserProfileView}></Route>
                         <Route exact path="/club" component={ClubListView}></Route>
-                        <Route path="/club/:club_id/qna/:qna_id" component={QnaDetailView}></Route>
+                        <Route
+                            exact
+                            path="/club/:club_id/qna/:qna_id"
+                            component={QnaDetailView}
+                        ></Route>
                         <Route exact path="/club/:club_id/qna" component={QnaListView}></Route>
-                        <Route path="/club/:club_id" component={ClubDetailView}></Route>
-                        <Route path="/post" exact component={PostListView}></Route>
-                        <Route path="/post/:post_id" component={PostDetailView}></Route>
+                        <Route exact path="/club/:club_id" component={ClubDetailView}></Route>
+                        <Route exact path="/club/:club_id/post" component={PostListView}></Route>
+                        <Route
+                            path="/club/:club_id/post/:post_id"
+                            component={PostDetailView}
+                        ></Route>
                         <Route path="*" component={NotFoundView}></Route>
                     </Switch>
                 </>

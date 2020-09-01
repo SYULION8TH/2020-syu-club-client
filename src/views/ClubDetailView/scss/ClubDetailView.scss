@@ -1,0 +1,152 @@
+@import '../../../scss/variables';
+
+.club-detail-container {
+    width: 100%;
+    height: 100%;
+    background-color: $colors-dark;
+    background-image: $bg-gradient;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+    .club-detail-header-container {
+        width: 100%;
+        height: 200px;
+        flex-shrink: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        img {
+            width: 100%;
+        }
+    }
+    .club-detail-body-container {
+        position: absolute;
+        width: 100%;
+        top: 200px;
+        background-color: $colors-white;
+        flex-shrink: 0;
+        flex-grow: 1;
+
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        .club-detail-info-container {
+            margin: 20px 25px;
+            // margin-bottom: $content-spacing;
+            .club-detail-info-header {
+                display: flex;
+                flex-direction: column;
+                .club-detail-info-header-row {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+
+                    .club-detail-info-title {
+                        color: $colors-dark;
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                    }
+
+                    .club-detail-info-established-date {
+                        color: $colors-text-sub;
+                        font-size: 0.8rem;
+                    }
+
+                    .club-detail-info-category {
+                        color: $colors-text-sub;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                    }
+
+                    .club-detail-info-view {
+                        color: $colors-text-sub;
+                        font-size: 0.9rem;
+                        display: flex;
+                        align-items: center;
+                        svg {
+                            margin-right: 5px;
+                            path {
+                                stroke: $colors-text-sub;
+                            }
+                        }
+                        &.liked {
+                            svg {
+                                color: $colors-red;
+                            }
+                        }
+                    }
+
+                    .club-detail-info-desc {
+                        color: $colors-dark;
+                    }
+                }
+            }
+        }
+
+        .club-detail-contents-container {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 25px;
+            .club-detail-contents-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                .club-detail-contents-title {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: $colors-gradient-color-3;
+                }
+                .club-detail-contents-link {
+                    font-size: 0.9rem;
+                    color: $colors-text-sub;
+                }
+            }
+
+            .club-detail-posts-container {
+                display: flex;
+                overflow-x: auto;
+                padding: 10px 5px;
+
+                .club-post-card {
+                    box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.4);
+                    margin-right: 10px;
+                }
+            }
+            .club-detail-qna-container {
+                padding: $content-spacing 0;
+                .club-detail-qna-item {
+                    background-color: #f6f6f6;
+                    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+                    margin-bottom: 10px;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+
+                    .club-detail-qna-content {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        .club-detail-qna-date {
+                            color: rgba(0, 0, 0, 0.42);
+                            font-size: 0.8rem;
+                        }
+                        .club-detail-qna-replies {
+                            color: #707070;
+                            font-size: 0.8rem;
+                            display: flex;
+                            align-items: center;
+                            svg {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

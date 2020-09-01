@@ -20,7 +20,15 @@ export async function getClubs() {
     return response.data;
 }
 
-export async function getClub() {}
+export async function getClub(clubId, params) {
+    const host = process.env.REACT_APP_API_HOST;
+    const response = await axios({
+        method: 'GET',
+        url: `${host}/clubs/${clubId}`,
+        params: params,
+    });
+    return response.data;
+}
 
 export async function getFamousClubs(params) {
     const host = process.env.REACT_APP_API_HOST;
