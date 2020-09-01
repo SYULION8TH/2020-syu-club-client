@@ -38,8 +38,10 @@ const MainView = () => {
         <div
             className={`main-container`}
             onScroll={(elem) => {
-                const calculated = elem.target.scrollTop / _innerHeight;
-                setCoverOpacity(calculated > 1 ? 1 : calculated);
+                if (elem.target.className === 'main-container') {
+                    const calculated = elem.target.scrollTop / _innerHeight;
+                    setCoverOpacity(calculated > 1 ? 1 : calculated);
+                }
             }}
         >
             <AnimatedBackground coverOpacity={coverOpacity} />
@@ -55,7 +57,7 @@ const MainView = () => {
                                 <ClubCard
                                     key={idx}
                                     name={item.club_name}
-                                    category={"카테고리"}
+                                    category={'카테고리'}
                                     imgUrl={item.club_logo_url}
                                     likeCount={item.like_count}
                                 />

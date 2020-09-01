@@ -9,13 +9,12 @@ import { getUserInfo } from '../../modules/User';
 import { isNullOrUndefined } from 'util';
 
 export const Navbar = (props) => {
-    
-
     const [menuOpened, setMenuOpened] = useState(false);
     return (
         <div className={`navbar-container`}>
             <AnimatedMenuIcon isOpened={menuOpened} setIsOpened={(v) => setMenuOpened(v)} />
             <SideMenu isOpened={menuOpened} />
+            <div className={`navbar-container-cover ${menuOpened ? 'active' : ''}`}></div>
         </div>
     );
 };
