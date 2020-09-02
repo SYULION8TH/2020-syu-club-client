@@ -88,7 +88,7 @@ import React, { useEffect } from 'react'
 
 const Component = ()=>{
     const fn = async ()=>{
-        const result = await QnaAPI.fetchQna();
+        const result = await QnaAPI.getQNAs();
         console.log(result);
     }
     useEffect(()=>{

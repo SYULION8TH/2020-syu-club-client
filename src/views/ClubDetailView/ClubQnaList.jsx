@@ -32,7 +32,7 @@ const ClubQnaList = (props) => {
     const [items, setItems] = useState([]);
 
     const fetch = async (id) => {
-        const response = await QnaAPI.fetchQna(props.clubId, {
+        const response = await QnaAPI.getQNAs(props.clubId, {
             limit: 10,
         });
         setItems(response.results);
