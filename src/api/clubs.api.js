@@ -9,12 +9,13 @@ export async function getSomething() {
 
     return response.data;
 }
-export async function getClubs() {
+export async function getClubs(params) {
     const host = process.env.REACT_APP_API_HOST;
 
     const response = await axios({
         method: 'GET',
-        url: `http://210.114.17.157/api/clubs`,
+        url: `${host}/clubs`,
+        params: params,
     });
 
     return response.data;

@@ -10,7 +10,9 @@ const ClubListView = () => {
 
     useEffect(() => {
         const getInfo = async () => {
-            const result = await ClubsAPI.getClubs(values);
+            const result = await ClubsAPI.getClubs({
+                limit: 10,
+            });
             setInfo([...result.results]);
         };
         getInfo();
@@ -44,7 +46,12 @@ const ClubListView = () => {
                     <div className="main-wrapper">
                         <div className="main-cards">
                             {infos.map((info, idx) => (
-                                <ClubCard key={idx} name={info.club_name} />
+                                <ClubCard
+                                    key={idx}
+                                    name={info.club_name}
+                                    imgUrl={info.club_img_url}
+                                    category={''}
+                                />
                             ))}
                         </div>
                     </div>
