@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { isNullOrUndefined } from 'util';
+import { useHistory } from 'react-router';
 
 import './scss/QnaDetailView.scss';
 import { BackgroundImageView } from '../../components';
@@ -17,10 +18,21 @@ const QnaDetailView = (props) => {
     const [numOfReplies, setNumOfReplies] = useState(0);
     const clubId = props.match.params.club_id;
     const qnaId = props.match.params.qna_id;
+    const history = useHistory();
 
     const fetch = async () => {
-        const response = await QnaAPI.getQNADetail(clubId, qnaId);
-        setDetail(response);
+        try {
+            const response = await QnaAPI.getQNADetail(clubId, qnaId);
+            setDetail(response);
+        } catch (e) {
+            if (
+                !isNullOrUndefined(e.response) &&
+                !isNullOrUndefined(e.response.status) &&
+                e.response.status === 404
+            ) {
+                history.push('/not-found');
+            }
+        }
     };
 
     useEffect(() => {
@@ -58,7 +70,7 @@ const QnaDetailView = (props) => {
                     </p>
                 </div>
 
-                <QnaReplyList  qnaId={qnaId} onCount={setNumOfReplies} />
+                <QnaReplyList qnaId={qnaId} onCount={setNumOfReplies} />
             </div>
         </BackgroundImageView>
     );
