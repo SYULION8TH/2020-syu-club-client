@@ -139,6 +139,17 @@
                         }
                     }
                 }
+
+                .qna-detail-reply-list-items-empty {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    > p {
+                        color: $colors-white;
+                    }
+                }
             }
         }
         .qna-detail-reply-list-add-form {
