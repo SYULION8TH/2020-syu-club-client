@@ -15,7 +15,7 @@ const QnaListView = (props) => {
     const [items, setItems] = useState([]);
 
     const fetch = async () => {
-        const response = await QnaAPI.fetchQna(clubId, {
+        const response = await QnaAPI.getQNAs(clubId, {
             limit: 10,
         });
         console.log(response);
