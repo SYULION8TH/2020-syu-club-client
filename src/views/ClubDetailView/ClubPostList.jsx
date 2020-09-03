@@ -12,6 +12,7 @@ const ClubPostList = (props) => {
             limit: 10,
         });
         setPosts(response.results);
+        // setPosts([]);
     };
 
     useEffect(() => {
@@ -30,6 +31,13 @@ const ClubPostList = (props) => {
                     linkUrl={`/club/${props.clubId}/post/${post.post_id}`}
                 />
             ))}
+            {posts.length <= 0 ? (
+                <div className="club-detail-posts-empty">
+                    <p>아직 작성된 글이 없습니다 </p>
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

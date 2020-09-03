@@ -36,6 +36,7 @@ const ClubQnaList = (props) => {
             limit: 10,
         });
         setItems(response.results);
+        // setItems([]);
     };
 
     useEffect(() => {
@@ -47,15 +48,13 @@ const ClubQnaList = (props) => {
             {items.map((item, idx) => {
                 return <ClubQnaListItem key={idx} data={item} />;
             })}
-            {items.map((item, idx) => {
-                return <ClubQnaListItem key={idx} data={item} />;
-            })}
-            {items.map((item, idx) => {
-                return <ClubQnaListItem key={idx} data={item} />;
-            })}
-            {items.map((item, idx) => {
-                return <ClubQnaListItem key={idx} data={item} />;
-            })}
+            {items.length <= 0 ? (
+                <div className="club-detail-qna-empty">
+                    <p>아직 등록된 문의가 없습니다</p>
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
     );
 };
