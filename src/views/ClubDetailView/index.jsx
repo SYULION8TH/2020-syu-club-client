@@ -24,7 +24,7 @@ const ClubDetailView = (props) => {
 
     useEffect(() => {
         fetch.info();
-    }, []);
+    }, [props.match]);
 
     return (
         <div className="club-detail-container">
