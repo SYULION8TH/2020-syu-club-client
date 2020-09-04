@@ -9,11 +9,18 @@ import { Card, PostCard, ClubCard } from '../../components';
 
 import { isNullOrUndefined } from 'util';
 
+import { useSelector } from 'react-redux';
+
 const MainView = () => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
 
     const [famousClubs, setFamousClubs] = useState(null);
+    const { pendingWorks } = useSelector((state) => state);
+
+    useEffect(() => {
+        console.log('Hello', pendingWorks);
+    }, [pendingWorks]);
 
     const fn = {
         famous: {

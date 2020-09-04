@@ -1,0 +1,71 @@
+@import '../../scss/variables';
+
+$progress-bar-height: 5px;
+$progress-bar-animation-duration: 2s;
+
+.__axios-request-progress-bar {
+    position: fixed;
+    z-index: $view-z-index + 100000;
+    width: 100%;
+    height: $progress-bar-height;
+    top: 0;
+    left: 0%;
+    transition: 0.2s;
+    &.hide {
+        top: -$progress-bar-height;
+        transition: 0.2s;
+    }
+    .__axios-request-progress-bar-item {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            $colors-gradient-color-1,
+            $colors-gradient-color-2,
+            $colors-gradient-color-3
+        );
+        background-size: 400% 400%;
+        transition: 0.3s;
+
+        -webkit-animation: axios-request-progress-bar-animation $progress-bar-animation-duration
+            ease infinite;
+        -moz-animation: axios-request-progress-bar-animation $progress-bar-animation-duration ease
+            infinite;
+        animation: axios-request-progress-bar-animation $progress-bar-animation-duration ease
+            infinite;
+    }
+}
+
+@-webkit-keyframes axios-request-progress-bar-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@-moz-keyframes axios-request-progress-bar-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes axios-request-progress-bar-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
