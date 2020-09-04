@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { PostAPI } from '../../api';
 import { PostCard } from '../../components';
-import { Link } from 'react-router-dom';
 
 const ClubPostList = (props) => {
     const [posts, setPosts] = useState([]);

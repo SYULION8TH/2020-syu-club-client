@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 import { useSelector } from 'react-redux';
@@ -27,8 +28,6 @@ const AxiosProgressBar = (props) => {
         } else {
             setIsVisible(false);
         }
-
-        console.log(pendingWorks);
     }, [pendingWorks]);
 
     return (

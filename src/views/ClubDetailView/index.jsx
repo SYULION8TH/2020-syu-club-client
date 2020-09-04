@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { ClubsAPI } from '../../api';
 
@@ -21,12 +22,8 @@ const ClubDetailView = (props) => {
         },
     };
 
-    const init = async () => {
-        await fetch.info();
-    };
-
     useEffect(() => {
-        init();
+        fetch.info();
     }, []);
 
     return (

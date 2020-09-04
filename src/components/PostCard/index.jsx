@@ -2,7 +2,7 @@ import React from 'react';
 import './postcard.scss';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { isNullOrUndefined, isDate } from 'util';
+import { isNullOrUndefined } from 'util';
 
 import { useHistory } from 'react-router';
 

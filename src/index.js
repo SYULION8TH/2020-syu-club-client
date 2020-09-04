@@ -18,13 +18,13 @@ import PostDetailView from './views/PostDetailView';
 import { Navbar, AxiosProgressBar } from './components';
 
 // ROUTER
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 // REDUX
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 // import Thunk from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer, { rootSaga } from './modules';
 import { createBrowserHistory } from 'history';
@@ -53,6 +53,11 @@ export const store = createStore(
 
 sagaMiddleware.run(rootSaga); // 루트 사가를 실행해줍니다.
 // 주의: 스토어 생성이 된 다음에 위 코드를 실행해야합니다.
+
+customHistory.listen((a, b, c, d) => {
+    console.log(a, b, c, d);
+    console.log('history listen');
+});
 
 ReactDOM.render(
     <React.StrictMode>
