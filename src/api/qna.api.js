@@ -15,7 +15,7 @@ export const getQNADetail = async (clubId, qnaId, params) => {
     const host = process.env.REACT_APP_API_HOST;
     const response = await axios({
         method: `GET`,
-        url: `${host}/clubs/${clubId}/qna/${qnaId}/`,
+        url: `${host}/clubs/${clubId}/qna/${qnaId}`,
     });
 
     return response.data;

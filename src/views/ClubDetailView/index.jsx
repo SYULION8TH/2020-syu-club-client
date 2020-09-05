@@ -5,7 +5,6 @@ import { ClubsAPI } from '../../api';
 import ClubPostList from './ClubPostList';
 import ClubQnaList from './ClubQnaList';
 import SubMenuContainer from './SubMenuContainer';
-import moment from 'moment';
 import { isNullOrUndefined } from 'util';
 
 import { AiFillHeart, AiOutlineHeart, AiOutlineLoading3Quarters } from 'react-icons/ai';
