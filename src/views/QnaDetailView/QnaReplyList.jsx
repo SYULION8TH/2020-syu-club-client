@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { QnaAPI } from '../../api';
 import { useSelector } from 'react-redux';
@@ -27,6 +28,7 @@ const QnaReplyList = (props) => {
                         options.parent_reply = selectedComment.qna_reply_id;
                     }
                     await QnaAPI.postQNAReply(props.qnaId, options);
+
                     // 등록 완료
                     await fn.fetch();
 
@@ -70,6 +72,14 @@ const QnaReplyList = (props) => {
                             />
                         );
                     })}
+
+                    {replies.length <= 0 ? (
+                        <div className="qna-detail-reply-list-items-empty">
+                            <p>아직 등록된 댓글이 없습니다</p>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
             <div className="qna-detail-reply-list-add-form">
@@ -78,7 +88,7 @@ const QnaReplyList = (props) => {
                         {isNullOrUndefined(selectedComment) ? (
                             <></>
                         ) : (
-                            <p id="__reply-comment-user-name">@아무개</p>
+                            <p id="__reply-comment-user-name">@{selectedComment.user.username}</p>
                         )}
                         <input
                             type="text"

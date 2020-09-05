@@ -10,7 +10,7 @@ const QnaUserInfo = (props) => {
             }`}
         >
             <CircleFramedImage
-                imgUrl={props.imgUrl}
+                imgUrl={!isNullOrUndefined(props.imgUrl) ? props.imgUrl : ''}
                 width={20}
                 height={20}
                 imgAlt="사용자 프로필 이미지"
@@ -21,7 +21,7 @@ const QnaUserInfo = (props) => {
 };
 
 QnaUserInfo.propTypes = {
-    imgUrl: PropTypes.string.isRequired,
+    imgUrl: PropTypes.string,
     name: PropTypes.string.isRequired,
     className: PropTypes.string,
 };

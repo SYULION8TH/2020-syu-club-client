@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './scss/MainView.scss';
 import { ClubsAPI } from '../../api';
@@ -29,10 +30,6 @@ const MainView = () => {
     useEffect(() => {
         fn.famous.fetch();
     }, []);
-
-    useEffect(() => {
-        console.log(famousClubs);
-    }, [famousClubs]);
 
     return (
         <div

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from 'react';
 import PropTypes from 'prop-types';
 import CircleFramedImage from '../CircleFramedImage';
 import { Link } from 'react-router-dom';
@@ -65,9 +66,9 @@ const SideMenu = (props) => {
             // 실제 통신에 에러가 발생한 경우
             // }
         } else if (!isNullOrUndefined(info.data)) {
-            console.log(info.data);
+            // console.log(info.data);
         } else {
-            console.log('requested..');
+            // console.log('requested..');
         }
         return () => {};
     }, [info.loading]);

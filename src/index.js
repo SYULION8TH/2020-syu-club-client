@@ -15,16 +15,16 @@ import QnaListView from './views/QnaListView';
 import QnaDetailView from './views/QnaDetailView';
 import PostListView from './views/PostListView';
 import PostDetailView from './views/PostDetailView';
-import { Navbar } from './components';
+import { Navbar, AxiosProgressBar } from './components';
 
 // ROUTER
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 // REDUX
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 // import Thunk from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer, { rootSaga } from './modules';
 import { createBrowserHistory } from 'history';
@@ -39,14 +39,14 @@ const sagaMiddleware = createSagaMiddleware({
     },
 }); // 사가 미들웨어를 만듭니다.
 
-const store = createStore(
+export const store = createStore(
     rootReducer,
     // logger 를 사용하는 경우, logger가 가장 마지막에 와야합니다.
     composeWithDevTools(
         applyMiddleware(
             // ReduxThunk.withExtraArgument({ history: customHistory }),
             sagaMiddleware, // 사가 미들웨어를 적용하고
-            logger,
+            // logger,
         ),
     ),
 ); // 여러개의 미들웨어를 적용 할 수 있습니다.
@@ -59,6 +59,7 @@ ReactDOM.render(
         <Provider store={store}>
             <Router history={customHistory}>
                 <>
+                    <AxiosProgressBar store={store} />
                     <Navbar />
                     <Switch>
                         <Route exact path="/" component={MainView}></Route>

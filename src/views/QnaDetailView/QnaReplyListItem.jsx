@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
@@ -15,7 +16,7 @@ const QnaReplyListItem = (props) => {
 
     useEffect(() => {
         if (!isNullOrUndefined(info.data)) {
-            setIsWrittenFromMe(info.data.user.id === props.data.user);
+            setIsWrittenFromMe(info.data.user.id === props.data.user.id);
         }
     }, [info.data]);
 
@@ -23,11 +24,15 @@ const QnaReplyListItem = (props) => {
         <div className="qna-detail-reply-list-item">
             <div className="qna-detail-reply-list-item-row">
                 <div className="qna-detail-reply-list-item-user-row">
-                    <QnaUserInfo
-                        imgUrl=""
-                        name="아무개"
-                        className={isWrittenFromMe ? 'my-comment' : ''}
-                    />
+                    {!isNullOrUndefined(info.data) ? (
+                        <QnaUserInfo
+                            imgUrl={info.data.user.profile}
+                            name={info.data.user.username}
+                            className={isWrittenFromMe ? 'my-comment' : ''}
+                        />
+                    ) : (
+                        <QnaUserInfo imgUrl="" name="아무개" />
+                    )}
                     <button
                         type="button"
                         onClick={() => {
@@ -46,16 +51,20 @@ const QnaReplyListItem = (props) => {
             {props.data.reply.map((item, idx) => {
                 let isWrittenFromMeToo = false;
                 if (!isNullOrUndefined(info.data)) {
-                    isWrittenFromMeToo = info.data.user.id === item.user;
+                    isWrittenFromMeToo = info.data.user.id === item.user.id;
                 }
                 return (
                     <div key={idx} className="qna-detail-reply-list-item-row">
                         <BsArrowReturnRight className="qna-detail-reply-list-item-decorator" />
-                        <QnaUserInfo
-                            imgUrl=""
-                            name="아무개"
-                            className={isWrittenFromMeToo ? 'my-comment' : ''}
-                        />
+                        {!isNullOrUndefined(item) ? (
+                            <QnaUserInfo
+                                imgUrl={item.user.profile}
+                                name={item.user.username}
+                                className={isWrittenFromMeToo ? 'my-comment' : ''}
+                            />
+                        ) : (
+                            <QnaUserInfo imgUrl="" name="아무개" />
+                        )}
                         <p className="qna-detail-reply-list-item-content">
                             {item.qna_reply_content}
                         </p>
