@@ -3,6 +3,7 @@ import './postcard.scss';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { isNullOrUndefined } from 'util';
+import EllipsisText from 'react-ellipsis-text';
 
 import { useHistory } from 'react-router';
 
@@ -31,7 +32,10 @@ const PostCard = (props) => {
                 )}
             </div>
             <div className="__post-card-container-content">
-                <p className="__post-card-container-title">{props.title}</p>
+                <p className="__post-card-container-title">
+                    {/* {props.title} */}
+                    <EllipsisText text={props.title} length={15} />
+                </p>
                 <p className="__post-card-container-date">
                     {moment(props.date).format('YYYY.MM.DD')}
                 </p>

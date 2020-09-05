@@ -7,6 +7,8 @@ import { useHistory } from 'react-router';
 
 import { MdChatBubbleOutline } from 'react-icons/md';
 
+import EllipsisText from 'react-ellipsis-text';
+
 const ClubQnaListItem = (props) => {
     const history = useHistory();
     return (
@@ -16,13 +18,15 @@ const ClubQnaListItem = (props) => {
                 history.push(`/club/${props.data.club}/qna/${props.data.question_id}`);
             }}
         >
-            <p className="club-detail-qna-title">{props.data.question_title}</p>
+            <p className="club-detail-qna-title">
+                <EllipsisText text={props.data.question_title} length={30} />
+            </p>
             <div className="club-detail-qna-content">
                 <p className="club-detail-qna-date">
                     {moment(props.data.created_at).format('YYYY.MM.DD')}
                 </p>
                 <span className="club-detail-qna-replies">
-                    <MdChatBubbleOutline /> 10
+                    <MdChatBubbleOutline /> {props.data.comments}
                 </span>
             </div>
         </div>
