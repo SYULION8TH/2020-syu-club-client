@@ -54,10 +54,14 @@ const QnaDetailView = (props) => {
                         </p>
                     </div>
                     <div className="qna-detail-view-header-row center">
-                        <QnaUserInfo
-                            imgUrl={`https://mblogthumb-phinf.pstatic.net/MjAxOTEwMjlfNDUg/MDAxNTcyMzI5NDcwNjIz.aW2F-SaHTjtOHNUlRixK7I_scEWzQDe7k-JHLkxj9_wg.fKoqWcVf8Y-vVCKGpIqUCy--2rC8Na4pHoGawaOwmVcg.PNG.moonkuki/SE-c0ad31f7-b153-4905-9f10-9d81b853e1e6.png?type=w800`}
-                            name="아무개"
-                        />
+                        {!isNullOrUndefined(detail) ? (
+                            <QnaUserInfo imgUrl={detail.user.profile} name={detail.user.username} />
+                        ) : (
+                            <QnaUserInfo
+                                imgUrl={`https://mblogthumb-phinf.pstatic.net/MjAxOTEwMjlfNDUg/MDAxNTcyMzI5NDcwNjIz.aW2F-SaHTjtOHNUlRixK7I_scEWzQDe7k-JHLkxj9_wg.fKoqWcVf8Y-vVCKGpIqUCy--2rC8Na4pHoGawaOwmVcg.PNG.moonkuki/SE-c0ad31f7-b153-4905-9f10-9d81b853e1e6.png?type=w800`}
+                                name="아무개"
+                            />
+                        )}
                         <span className="qna-detail-view-sub-text">
                             <MdChatBubbleOutline /> {numOfReplies}
                         </span>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { QnaAPI } from '../../api';
 import { useSelector } from 'react-redux';
@@ -87,7 +88,7 @@ const QnaReplyList = (props) => {
                         {isNullOrUndefined(selectedComment) ? (
                             <></>
                         ) : (
-                            <p id="__reply-comment-user-name">@아무개</p>
+                            <p id="__reply-comment-user-name">@{selectedComment.user.username}</p>
                         )}
                         <input
                             type="text"
