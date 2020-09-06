@@ -15,6 +15,7 @@ import QnaListView from './views/QnaListView';
 import QnaDetailView from './views/QnaDetailView';
 import PostListView from './views/PostListView';
 import PostDetailView from './views/PostDetailView';
+import PostInClubView from './views/PostInClubView';
 import { Navbar } from './components';
 
 // ROUTER
@@ -72,8 +73,10 @@ ReactDOM.render(
                         ></Route>
                         <Route exact path="/club/:club_id/qna" component={QnaListView}></Route>
                         <Route exact path="/club/:club_id" component={ClubDetailView}></Route>
-                        <Route exact path="/club/:club_id/post" component={PostListView}></Route>
+                        <Route exact path="/club/:club_id/post" component={PostInClubView}></Route>
+                        <Route exact path="/post" component={PostListView}></Route>
                         <Route
+                            exact
                             path="/club/:club_id/post/:post_id"
                             component={PostDetailView}
                         ></Route>

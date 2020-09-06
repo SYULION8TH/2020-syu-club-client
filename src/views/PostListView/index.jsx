@@ -1,7 +1,6 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { PostAPI } from '../../api';
-import { Navbar } from '../../components';
 import PostSearch from '../../components/PostSearch';
 import PostCard from './PostCard';
 import PopularSlider from './PopularSlider';
@@ -31,7 +30,7 @@ const PostListView = () => {
         
         fetchPost();
     },[values]);
-    // // 스크롤 이벤트 핸들러
+    // 스크롤 이벤트 핸들러
     // const handleScroll = () => {
     //     const scrollHeight = document.documentElement.scrollHeight;
     //     const scrollTop = document.documentElement.scrollTop;
@@ -55,13 +54,17 @@ const PostListView = () => {
     
     return (
         <div className="post-list-main-container">
-            <Navbar />
+            
             <div className="bg-container">
                 <div className="search-container">
                     <PostSearch setValues = {setValues} values={values}>동아리 포스팅</PostSearch>
                 </div>
-            </div>           
+            </div>
+            <div className="popPost-slider-wrap">
             <PopularSlider/>
+            </div>
+            
+
             <div className="post-list-container">
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
@@ -73,6 +76,7 @@ const PostListView = () => {
                         img={post.post_img_url}
                         date={moment(post.created_at).format('YYYY.MM.DD')}
                         club={post.club_name}
+                        club_id={post.club}
                         />
                     ))}
                     
@@ -81,5 +85,7 @@ const PostListView = () => {
         </div>
     );
 };
-
+// PostListView.defaultProps = {
+//     img: 'post-replacement.png'
+// };
 export default PostListView;
