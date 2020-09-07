@@ -1,0 +1,24 @@
+@import '../../../scss/variables';
+
+.__club-list-view-container {
+    .club-list-view-header-container {
+        width: 100%;
+        height: 252px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .club-list-view-header-wrapper {
+            margin: auto 25px;
+            flex-grow: 1;
+        }
+    }
+
+    .club-list-view-wrapper {
+        margin: $content-spacing 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+    }
+}

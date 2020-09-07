@@ -10,13 +10,15 @@ import NotFoundView from './views/NotFoundView';
 import LoginView from './views/LoginView';
 import UserProfileView from './views/UserProfileView';
 import ClubListView from './views/ClubListView';
+import ClubListViewNew from './views/ClubListViewNew';
 import ClubDetailView from './views/ClubDetailView';
 import QnaListView from './views/QnaListView';
 import QnaDetailView from './views/QnaDetailView';
 import PostListView from './views/PostListView';
 import PostDetailView from './views/PostDetailView';
 import PostInClubView from './views/PostInClubView';
-import { Navbar,AxiosProgressBar } from './components';
+
+import { Navbar, AxiosProgressBar } from './components';
 
 // ROUTER
 import { Router, Route, Switch } from 'react-router-dom';
@@ -66,7 +68,7 @@ ReactDOM.render(
                         <Route exact path="/" component={MainView}></Route>
                         <Route path="/login" component={LoginView}></Route>
                         <Route path="/profile" component={UserProfileView}></Route>
-                        <Route exact path="/club" component={ClubListView}></Route>
+                        <Route exact path="/club" component={ClubListViewNew}></Route>
                         <Route
                             exact
                             path="/club/:club_id/qna/:qna_id"
