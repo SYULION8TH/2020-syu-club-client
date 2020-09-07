@@ -29,14 +29,16 @@ const ClubDetailView = (props) => {
     return (
         <div className="club-detail-container">
             <div className="club-detail-header-container">
-                {!isNullOrUndefined(clubInfo) ? (
-                    <img src={clubInfo.club_img_url} alt="동아리 이미지" />
+                {!isNullOrUndefined(clubInfo) && !isNullOrUndefined(clubInfo.club_img_url) ? (
+                    <>
+                        <img src={clubInfo.club_img_url} alt="동아리 이미지" />
+                        <span className="club-detail-header-img-indicator">
+                            <AiOutlineLoading3Quarters />
+                        </span>
+                    </>
                 ) : (
                     <></>
                 )}
-                <span className="club-detail-header-img-indicator">
-                    <AiOutlineLoading3Quarters />
-                </span>
             </div>
             <div className="club-detail-body-container">
                 <div className="club-detail-info-container">
