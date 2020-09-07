@@ -1,6 +1,12 @@
 @import '../../../scss/variables';
 @import '../../../scss/common.scss';
 
+@media(min-width: 680px){
+  main{
+    height: 100%;
+  }
+}
+
 //Component
 .clublist-container {
   width: 100%;
@@ -50,7 +56,7 @@
       background-color: #F6F6F6;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-
+      
       .main-wrapper {
         padding: 39px 25px;
 
