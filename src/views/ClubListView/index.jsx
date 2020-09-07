@@ -23,7 +23,7 @@ const ClubListView = () => {
     }, [infos]);
 
     var handleClick = function (info) {
-        document.location.href = './' + info.club_id;
+        document.location.href = "club/"+info.club_id
     };
 
     return (
