@@ -81,6 +81,34 @@ const MainView = () => {
                             }
                         />
                     </Card>
+
+                    <Card title="아무튼 목록">
+                        <PostCard
+                            title="테스트"
+                            date={new Date()}
+                            imgUrl={
+                                'https://cf.realclass.co.kr/qualson/images/class_banner_1_wbb2_m.png'
+                            }
+                        />
+                    </Card>
+                    <Card title="아무튼 목록">
+                        <PostCard
+                            title="테스트"
+                            date={new Date()}
+                            imgUrl={
+                                'https://cf.realclass.co.kr/qualson/images/class_banner_1_wbb2_m.png'
+                            }
+                        />
+                    </Card>
+                    <Card title="아무튼 목록">
+                        <PostCard
+                            title="테스트"
+                            date={new Date()}
+                            imgUrl={
+                                'https://cf.realclass.co.kr/qualson/images/class_banner_1_wbb2_m.png'
+                            }
+                        />
+                    </Card>
                 </div>
             </div>
         </div>
