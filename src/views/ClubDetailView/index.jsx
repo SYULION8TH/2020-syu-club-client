@@ -8,18 +8,28 @@ import SubMenuContainer from './SubMenuContainer';
 import { isNullOrUndefined } from 'util';
 
 import { AiFillHeart, AiOutlineHeart, AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
 import './scss/ClubDetailView.scss';
 
 const ClubDetailView = (props) => {
     const clubId = props.match.params.club_id;
     const [clubInfo, setClubInfo] = useState(null);
+    const { info } = useSelector((state) => state.user);
 
     const fetch = {
         info: async () => {
             const response = await ClubsAPI.getClub(clubId);
             setClubInfo(response);
         },
+    };
+
+    const doLike = async () => {
+        if (isNullOrUndefined(info.data)) {
+            alert('로그인이 필요합니다');
+        } else {
+            console.log('좋아요 기능');
+        }
     };
 
     useEffect(() => {
@@ -59,6 +69,7 @@ const ClubDetailView = (props) => {
                                             ? 'liked'
                                             : ''
                                     }`}
+                                    onClick={doLike}
                                 >
                                     {!isNullOrUndefined(clubInfo) && clubInfo.user_like ? (
                                         <AiFillHeart />
