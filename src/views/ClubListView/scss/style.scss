@@ -29,7 +29,7 @@
     right: 0;
     bottom: 0;
     z-index: $view-z-index;
-    overflow-x: scroll;
+    overflow-y: auto;
 
     header {
       color: $colors-white;
