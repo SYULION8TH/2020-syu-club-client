@@ -26,9 +26,6 @@ const QnaListViewNew = (props) => {
             let options = {
                 limit: 10,
             };
-            // if (keyword !== '') {
-            //     options.question_title__contains = keyword;
-            // }
             const response = await QnaAPI.getQNAs(club._id, {
                 ...options,
                 ...params,
