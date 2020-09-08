@@ -1,6 +1,12 @@
 @import '../../../scss/variables';
 @import '../../../scss/common.scss';
 
+@media(min-width: 680px) {
+  main {
+    height: 100%;
+  }
+}
+
 //Component
 .clublist-container {
   width: 100%;
@@ -29,7 +35,7 @@
     right: 0;
     bottom: 0;
     z-index: $view-z-index;
-    overflow-x: scroll;
+    overflow-y: auto;
 
     header {
       color: $colors-white;

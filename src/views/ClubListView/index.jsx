@@ -52,6 +52,10 @@ const ClubListView = () => {
         document.location.href = 'club/' + info.club_id;
     };
 
+    var handleClick = function (info) {
+        document.location.href = "club/"+info.club_id
+    };
+
     return (
         <BackgroundImageView
             headerHeight={252}
