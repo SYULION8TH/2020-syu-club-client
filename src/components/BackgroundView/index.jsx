@@ -30,7 +30,7 @@ const BackgroundImageView = (props) => {
                 )}
             </div>
             <div
-                className="__background-image-view-body-container"
+                className={`__background-image-view-body-container ${props.bodyClassName}`}
                 style={
                     !isNullOrUndefined(props.headerHeight)
                         ? {
@@ -49,6 +49,7 @@ BackgroundImageView.propTypes = {
     className: PropTypes.string,
     header: PropTypes.element,
     headerHeight: PropTypes.number,
+    bodyClassName: PropTypes.string,
     onScroll: PropTypes.func,
 };
 
