@@ -49,7 +49,7 @@
                         background-color: rgba(0, 0, 0, 0);
                         flex-grow: 1;
                         flex-shrink: 0;
-                        font-weight: 1rem;
+                        font-size: 1rem;
                         border: 0;
                     }
                     > button {
@@ -65,12 +65,12 @@
         margin: $content-spacing * 3 0;
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         .qna-list-view-content-list-item {
             background-color: $colors-white;
             margin: 5px $content-spacing;
             box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
-            flex-grow: 1;
             padding: 10px;
             display: flex;
             flex-direction: column;
@@ -100,6 +100,13 @@
                     }
                 }
             }
+        }
+
+        .qna-list-view-content-placeholder {
+            font-size: 1.1rem;
+            color: $colors-text-sub;
+            flex-grow: 0;
+            margin: auto;
         }
     }
 }
