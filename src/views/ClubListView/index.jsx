@@ -22,6 +22,10 @@ const ClubListView = () => {
         console.log(infos);
     }, [infos]);
 
+    var handleClick = function (info) {
+        document.location.href = 'club/' + info.club_id;
+    };
+
     return (
         <div className="clublist-container">
             <div className="clublist-bg">
@@ -51,6 +55,7 @@ const ClubListView = () => {
                                     name={info.club_name}
                                     imgUrl={info.club_img_url}
                                     category={''}
+                                    onClick={handleClick.bind(this, info)}
                                 />
                             ))}
                         </div>

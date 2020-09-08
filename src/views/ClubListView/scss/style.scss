@@ -1,13 +1,15 @@
 @import '../../../scss/variables';
 @import '../../../scss/common.scss';
 
+
 //Component
 .clublist-container {
   width: 100%;
   height: 100%;
   position: relative;
-
+  
   .clublist-bg {
+    position: relative;
     width: 100%;
     height: 100%;
     background-image: $bg-gradient;
@@ -24,40 +26,61 @@
 
   .clublist-main {
     position: absolute;
-    top: 0;
     left: 0;
-    right: 0;
+    top: 0;
     bottom: 0;
+    right: 0;
+    width: 100%;
     z-index: $view-z-index;
-    overflow-x: scroll;
+    overflow-y: auto;
+    
+    .clublist-main-wrapper{
+      // width: 100%;
+      // height: 100%;
+      // position: relative;
+      // display: flex;
+      // flex-direction: column;
+      // overflow-y: auto;
 
-    header {
-      color: $colors-white;
-
-      .header-navbar {
-        height: $navbar-height;
-        width: $navbar-content-width;
-        margin: 0 auto;
+      header {
+        width: 100%;
+        // height: 190px;
+        // display: flex;
+        // justify-content: center;
+        position: fixed;
+        color: $colors-white;
+  
+        .header-navbar {
+          height: $navbar-height;
+          width: $navbar-content-width;
+          margin: 0 auto;
+        }
+  
+        .header-wrapper {
+          padding: 36px 25px 0;
+        }
       }
-
-      .header-wrapper {
-        padding: 36px 25px 0;
-      }
-    }
-
-    main {
-      margin-top: 20px;
-      background-color: #F6F6F6;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-
-      .main-wrapper {
-        padding: 39px 25px;
-
-        .main-cards {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
+      main {
+        position: absolute;
+        margin-top: 190px;
+        min-height: -webkit-fill-available;
+        // display: flex;
+        // flex-shrink: 0;
+        // flex-grow: 1;
+        // align-items: stretch;
+  
+        background-color: #F6F6F6;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+  
+        .main-wrapper {
+          padding: 39px 25px;
+  
+          .main-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+          }
         }
       }
     }
