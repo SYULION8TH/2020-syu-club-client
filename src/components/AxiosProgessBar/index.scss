@@ -20,9 +20,9 @@ $progress-bar-animation-duration: 2s;
         height: 100%;
         background: linear-gradient(
             90deg,
-            $colors-gradient-color-1,
+            $colors-gradient-color-3,
             $colors-gradient-color-2,
-            $colors-gradient-color-3
+            $colors-gradient-color-1
         );
         background-size: 400% 400%;
         transition: 0.3s;

@@ -1,6 +1,14 @@
 @import '../../../scss/variables';
 @import '../../../scss/common.scss';
 
+<<<<<<< HEAD
+=======
+@media(min-width: 680px) {
+  main {
+    height: 100%;
+  }
+}
+>>>>>>> 0a54c058c824a48c29948e4530ba49a3a8171750
 
 //Component
 .clublist-container {
@@ -33,56 +41,38 @@
     width: 100%;
     z-index: $view-z-index;
     overflow-y: auto;
-    
-    .clublist-main-wrapper{
-      // width: 100%;
-      // height: 100%;
-      // position: relative;
-      // display: flex;
-      // flex-direction: column;
-      // overflow-y: auto;
 
-      header {
-        width: 100%;
-        // height: 190px;
-        // display: flex;
-        // justify-content: center;
-        position: fixed;
-        color: $colors-white;
-  
-        .header-navbar {
-          height: $navbar-height;
-          width: $navbar-content-width;
-          margin: 0 auto;
-        }
-  
-        .header-wrapper {
-          padding: 36px 25px 0;
-        }
-      }
-      main {
-        position: absolute;
-        margin-top: 190px;
-        min-height: -webkit-fill-available;
-        // display: flex;
-        // flex-shrink: 0;
-        // flex-grow: 1;
-        // align-items: stretch;
-  
-        background-color: #F6F6F6;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-  
-        .main-wrapper {
-          padding: 39px 25px;
-  
-          .main-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-          }
-        }
-      }
+    header {
+      color: $colors-white;
     }
+  }
+}
+
+// refactoring style sheet
+.header-wrapper {
+  margin: 0 25px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.main-wrapper {
+  padding: 39px 25px;
+
+  .main-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .main-wrapper-placeholder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    // position: relative;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
   }
 }

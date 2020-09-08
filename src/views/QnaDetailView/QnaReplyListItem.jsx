@@ -15,7 +15,7 @@ const QnaReplyListItem = (props) => {
     const [isWrittenFromMe, setIsWrittenFromMe] = useState(false);
 
     useEffect(() => {
-        if (!isNullOrUndefined(info.data)) {
+        if (!isNullOrUndefined(info.data) && !isNullOrUndefined(props.data.user)) {
             setIsWrittenFromMe(info.data.user.id === props.data.user.id);
         }
     }, [info.data]);
@@ -50,13 +50,13 @@ const QnaReplyListItem = (props) => {
 
             {props.data.reply.map((item, idx) => {
                 let isWrittenFromMeToo = false;
-                if (!isNullOrUndefined(info.data)) {
+                if (!isNullOrUndefined(info.data) && !isNullOrUndefined(item.user)) {
                     isWrittenFromMeToo = info.data.user.id === item.user.id;
                 }
                 return (
                     <div key={idx} className="qna-detail-reply-list-item-row">
                         <BsArrowReturnRight className="qna-detail-reply-list-item-decorator" />
-                        {!isNullOrUndefined(item) ? (
+                        {!isNullOrUndefined(item) && !isNullOrUndefined(item.user) ? (
                             <QnaUserInfo
                                 imgUrl={item.user.profile}
                                 name={item.user.username}
