@@ -22,7 +22,7 @@ const QnaListViewNew = (props) => {
         },
     };
     const qna = {
-        fetch: async (params) => {
+        fetch: async (params, needToAppend = false) => {
             let options = {
                 limit: 10,
             };
@@ -31,7 +31,11 @@ const QnaListViewNew = (props) => {
                 ...params,
             });
             setNextURL(response.next);
-            setQNAs([...response.results]);
+            if (needToAppend) {
+                setQNAs([...QNAs, ...response.results]);
+            } else {
+                setQNAs(response.results);
+            }
         },
         ui: {
             search: () => {
@@ -61,10 +65,13 @@ const QnaListViewNew = (props) => {
                 ) {
                     if (!isNullOrUndefined(nextURL)) {
                         const _queries = LibTools.getQueriesFromURL(nextURL);
-                        qna.fetch({
-                            ..._queries,
-                            question_title__contains: keyword,
-                        });
+                        qna.fetch(
+                            {
+                                ..._queries,
+                                question_title__contains: keyword,
+                            },
+                            true,
+                        );
                     }
                 }
             },
