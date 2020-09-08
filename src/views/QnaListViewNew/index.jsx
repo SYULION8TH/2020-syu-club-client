@@ -54,19 +54,7 @@ const QnaListViewNew = (props) => {
                     }
                 }
             },
-        },
-    };
-
-    useEffect(() => {
-        club.fetch().then(qna.fetch);
-    }, [props.match]);
-
-    return (
-        <BackgroundImageView
-            className="__qna-list-view-container"
-            headerHeight={112}
-            bodyClassName="__qna-list-view-content"
-            onScroll={(event) => {
+            onScroll: (event) => {
                 if (
                     event.target.offsetHeight + event.target.scrollTop >=
                     event.target.scrollHeight
@@ -79,7 +67,20 @@ const QnaListViewNew = (props) => {
                         });
                     }
                 }
-            }}
+            },
+        },
+    };
+
+    useEffect(() => {
+        club.fetch().then(qna.fetch);
+    }, [props.match]);
+
+    return (
+        <BackgroundImageView
+            className="__qna-list-view-container"
+            headerHeight={112}
+            bodyClassName="__qna-list-view-content"
+            onScroll={qna.ui.onScroll}
         >
             <>
                 <div className="qna-list-search-form-container">
