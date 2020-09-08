@@ -69,7 +69,7 @@ ReactDOM.render(
                         <Route exact path="/" component={MainView}></Route>
                         <Route path="/login" component={LoginView}></Route>
                         <Route path="/profile" component={UserProfileView}></Route>
-                        <Route exact path="/club" component={ClubListViewNew}></Route>
+                        <Route exact path="/club" component={ClubListView}></Route>
                         <Route
                             exact
                             path="/club/:club_id/qna/:qna_id"
