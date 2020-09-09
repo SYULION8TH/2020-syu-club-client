@@ -111,6 +111,12 @@ const SideMenu = (props) => {
                 <Link className="menu-link-item" to="/post">
                     활동 포스팅 목록
                 </Link>
+                <a
+                    className="menu-link-item"
+                    href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b674fbd799a4debe8282e2bc5d013e14&redirect_uri=http://www.syu-clubs.com/accounts/kakao/login/callback/`}
+                >
+                    카카오 로그인
+                </a>
             </div>
             <InterestClubsList data={info.data} />
         </div>
