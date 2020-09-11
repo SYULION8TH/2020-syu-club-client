@@ -14,7 +14,9 @@ const AxiosProgressBar = (props) => {
         // 할일이 완전히 종료된 경우 초기화
         if (pendingWorks.pending.length <= 0 && pendingWorks.totalRequested !== 0) {
             setCurrentPercentage(100);
-            props.store.dispatch(ResetAxiosPendingWorks());
+            setTimeout(() => {
+                props.store.dispatch(ResetAxiosPendingWorks());
+            }, 500);
         } else {
             setCurrentPercentage(
                 ((pendingWorks.totalRequested - pendingWorks.pending.length) /

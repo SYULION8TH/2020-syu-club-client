@@ -38,7 +38,7 @@ const ClubQnaList = (props) => {
 
     const fetch = async (id) => {
         const response = await QnaAPI.getQNAs(props.clubId, {
-            limit: 10,
+            limit: 5,
         });
         setItems(response.results);
         // setItems([]);
