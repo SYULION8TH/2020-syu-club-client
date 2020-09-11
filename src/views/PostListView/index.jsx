@@ -9,7 +9,6 @@ import './scss/PostListView.scss';
 
 //TODO
 //1. 인피니티스크롤
-//2. 대체이미지 삽입
 const PostListView = () => {
     const[posts, setPosts] = useState([]);
     const[values, setValues] = useState('');

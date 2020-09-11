@@ -3,7 +3,6 @@ import React from 'react';
 import CircleFramedImage from '../../components/CircleFramedImage';
 import { AiOutlineEye } from 'react-icons/ai';
 import { MdChatBubbleOutline } from 'react-icons/md';
-import './scss/PostDetailContent.scss';
 //TODO
 //api에 club_img추가
 const PostDetailContent = (props) => {
@@ -12,6 +11,7 @@ const PostDetailContent = (props) => {
             <div className="post-detail-content-header">
                 <div className="post-detail-club-info">
                     <CircleFramedImage
+                    //수정하기
                         imgUrl={props.imgUrl}
                         width={20}
                         height={20}
