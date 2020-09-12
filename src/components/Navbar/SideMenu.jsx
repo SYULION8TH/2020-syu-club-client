@@ -111,24 +111,17 @@ const SideMenu = (props) => {
                 <Link className="menu-link-item" to="/post">
                     활동 포스팅 목록
                 </Link>
-                <a
-                    className="menu-link-item"
-                    href={`https://www.syu-clubs.com/accounts/kakao/login`}
-                >
+                <Link className="menu-link-item" to="/accounts/kakao/login">
                     카카오 로그인
-                </a>
-                <a
-                    className="menu-link-item"
-                    href={`https://www.syu-clubs.com/accounts/google/login`}
-                >
+                </Link>
+                <Link className="menu-link-item" to="/accounts/google/login">
                     구글 로그인
-                </a>
+                </Link>
             </div>
             <InterestClubsList data={info.data} />
         </div>
     );
 };
-
 SideMenu.propTypes = {
     isOpened: PropTypes.bool.isRequired,
 };
