@@ -113,9 +113,15 @@ const SideMenu = (props) => {
                 </Link>
                 <a
                     className="menu-link-item"
-                    href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b674fbd799a4debe8282e2bc5d013e14&redirect_uri=http://www.syu-clubs.com/accounts/kakao/login/callback/`}
+                    href={`https://www.syu-clubs.com/accounts/kakao/login`}
                 >
                     카카오 로그인
+                </a>
+                <a
+                    className="menu-link-item"
+                    href={`https://www.syu-clubs.com/accounts/google/login`}
+                >
+                    구글 로그인
                 </a>
             </div>
             <InterestClubsList data={info.data} />
