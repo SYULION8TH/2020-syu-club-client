@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './postSearch.scss';
 import { GoSearch } from 'react-icons/go';
 import { BiX } from 'react-icons/bi';
+import PropTypes from 'prop-types';
 
 //TODO
 //props type정의하기
@@ -40,6 +41,11 @@ const PostSearch = (props) => {
             </div>
         </div>
     );
+};
+
+PostSearch.propTypes = {
+    values: PropTypes.oneOf([PropTypes.string.isRequired, PropTypes.array.isRequired]),
+    setValues: PropTypes.func.isRequired,
 };
 
 export default PostSearch;

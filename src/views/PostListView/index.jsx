@@ -11,25 +11,23 @@ import './scss/PostListView.scss';
 //1. 인피니티스크롤
 //2. 대체이미지 삽입
 const PostListView = () => {
-    const[posts, setPosts] = useState([]);
-    const[values, setValues] = useState('');
+    const [posts, setPosts] = useState([]);
+    const [values, setValues] = useState('');
 
     //포스트 리스트 붙이기
-    const fetchPost = async ()=>{
-        try{
-            const result = await PostAPI.getPosts(values); 
-            setPosts([...result]); 
-            
+    const fetchPost = async () => {
+        try {
+            const result = await PostAPI.getPosts(values);
+            setPosts([...result]);
+
             console.log(posts);
-              
-        } catch(e){
+        } catch (e) {
             console.log(e);
         }
     };
-    useEffect(()=>{
-        
+    useEffect(() => {
         fetchPost();
-    },[values]);
+    }, [values]);
     // 스크롤 이벤트 핸들러
     // const handleScroll = () => {
     //     const scrollHeight = document.documentElement.scrollHeight;
@@ -48,38 +46,37 @@ const PostListView = () => {
     //       window.removeEventListener("scroll", handleScroll);
     //     };
     //   });
-    if(!posts) {
+    if (!posts) {
         return null;
     }
-    
+
     return (
         <div className="post-list-main-container">
-            
             <div className="bg-container">
                 <div className="search-container">
-                    <PostSearch setValues = {setValues} values={values}>동아리 포스팅</PostSearch>
+                    <PostSearch setValues={setValues} values={values}>
+                        동아리 포스팅
+                    </PostSearch>
                 </div>
             </div>
             <div className="popPost-slider-wrap">
-            <PopularSlider/>
+                <PopularSlider />
             </div>
-            
 
             <div className="post-list-container">
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
-                    {posts.map(post =>(
+                    {posts.map((post) => (
                         <PostCard
-                        key={post.post_id}
-                        title={post.post_title}
-                        id={post.post_id}
-                        img={post.post_img_url}
-                        date={moment(post.created_at).format('YYYY.MM.DD')}
-                        club={post.club_name}
-                        club_id={post.club}
+                            key={post.post_id}
+                            title={post.post_title}
+                            id={post.post_id}
+                            img={post.post_img_url}
+                            date={moment(post.created_at).format('YYYY.MM.DD')}
+                            club={post.club_name}
+                            club_id={post.club}
                         />
                     ))}
-                    
                 </div>
             </div>
         </div>
