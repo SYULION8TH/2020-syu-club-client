@@ -9,6 +9,7 @@ import SearchForm from './SearchForm';
 import { Card, PostCard, ClubCard } from '../../components';
 
 import { isNullOrUndefined } from 'util';
+import InterestClubPosts from './InterestClubPosts';
 
 const MainView = () => {
     const _innerHeight = window.innerHeight;
@@ -45,6 +46,7 @@ const MainView = () => {
             <SearchForm />
             <div className="contents-container">
                 <div className="contents-wrapper">
+                    <InterestClubPosts />
                     <Card
                         title="관심 동아리 최근 포스트"
                         wrapperClassName="famous-clubs-list-container"
