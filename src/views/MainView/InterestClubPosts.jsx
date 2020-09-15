@@ -32,7 +32,7 @@ const InterestClubPostsListItem = (props) => {
             </div>
             <div className="interest-club-list-item-posts-container">
                 {posts.map((item, key) => (
-                    <PostCard key={key} title={item.post_title} />
+                    <PostCard key={key} title={item.post_title} imgUrl={item.post_img_url} />
                 ))}
             </div>
         </div>
