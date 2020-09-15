@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserInfo } from '../../modules/User';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 import SocialConnectLink from './SocialConnectLink';
 
 const InterestClubsList = (props) => {
@@ -112,13 +112,8 @@ const SideMenu = (props) => {
                 <Link className="menu-link-item" to="/post">
                     활동 포스팅 목록
                 </Link>
-                <SocialConnectLink to="/accounts/kakao/login">
-                    카카오 로그인
-                </SocialConnectLink>
-                <SocialConnectLink to="/accounts/google/login">
-                    구글 로그인
-                </SocialConnectLink>
-                
+                <SocialConnectLink to="/accounts/kakao/login">카카오 로그인</SocialConnectLink>
+                <SocialConnectLink to="/accounts/google/login">구글 로그인</SocialConnectLink>
             </div>
             <InterestClubsList data={info.data} />
         </div>

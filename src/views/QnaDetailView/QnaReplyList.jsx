@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { QnaAPI } from '../../api';
 import { useSelector } from 'react-redux';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 
 import QnaReplyListItem from './QnaReplyListItem';
 

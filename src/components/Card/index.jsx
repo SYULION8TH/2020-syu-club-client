@@ -1,7 +1,7 @@
 import React from 'react';
 import './card.scss';
 import PropTypes from 'prop-types';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 
 const index = (props) => {
     return (

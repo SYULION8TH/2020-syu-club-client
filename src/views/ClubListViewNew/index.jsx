@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ClubsAPI } from '../../api';
 import { BackgroundImageView, PostSearch, ClubCard } from '../../components';
 import './scss/index.scss';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 import { useHistory } from 'react-router';
 import { getQueriesFromURL } from '../../lib/tools';
 

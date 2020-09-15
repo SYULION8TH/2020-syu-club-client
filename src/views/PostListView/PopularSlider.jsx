@@ -4,7 +4,7 @@ import { PostAPI } from '../../api';
 import { Link } from 'react-router-dom';
 import { getPopularPosts } from '../../api/posts.api';
 import reImg from '../../assets/img/post-replacement@2x.png';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 
 const PopularSlider = () => {
     const [popPosts, setPopPosts] = useState([]);
@@ -39,8 +39,8 @@ const PopularSlider = () => {
                                 !isNullOrUndefined(src.post_img_url) && src.post_img_url !== ''
                                     ? {
                                           backgroundImage: `url(${src.post_img_url})`,
-                                          backgroundSize:" cover",
-                                          backgroundColor:"white"
+                                          backgroundSize: ' cover',
+                                          backgroundColor: 'white',
                                       }
                                     : { backgroundImage: `url(${reImg})` }
                             }
