@@ -2,7 +2,7 @@ import React from 'react';
 import './postcard.scss';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 import EllipsisText from 'react-ellipsis-text';
 
 import { useHistory } from 'react-router';

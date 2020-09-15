@@ -8,7 +8,7 @@ import SearchForm from './SearchForm';
 
 import { Card, PostCard, ClubCard } from '../../components';
 
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 import InterestClubPosts from './InterestClubPosts';
 
 const MainView = () => {

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 import { useHistory } from 'react-router';
 
 import './scss/QnaDetailView.scss';

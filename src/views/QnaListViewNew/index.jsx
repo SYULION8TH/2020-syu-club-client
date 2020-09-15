@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ClubsAPI, QnaAPI } from '../../api';
 import './scss/QnaListViewNew.scss';
 import { CircleFramedImage, BackgroundImageView } from '../../components';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 import { GoSearch } from 'react-icons/go';
 import { BiX } from 'react-icons/bi';
 import QnaListItem from './QnaListItem';

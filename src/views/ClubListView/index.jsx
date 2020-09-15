@@ -3,7 +3,7 @@ import { ClubsAPI } from '../../api';
 import { Navbar, ClubCard, PostSearch, BackgroundImageView } from '../../components';
 import * as LibTools from '../../lib/tools';
 import './scss/style.scss';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 import { useHistory } from 'react-router';
 
 const ClubListView = () => {
@@ -53,7 +53,7 @@ const ClubListView = () => {
     };
 
     var handleClick = function (info) {
-        document.location.href = "club/"+info.club_id
+        document.location.href = 'club/' + info.club_id;
     };
 
     var handleClick = function (info) {

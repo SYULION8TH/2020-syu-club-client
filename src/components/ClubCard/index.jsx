@@ -6,7 +6,7 @@ import './ClubCard.scss';
 import { GrLike } from 'react-icons/gr';
 import { BsCardImage } from 'react-icons/bs';
 import { useEffect } from 'react';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 
 const ClubCard = (props) => {
     const [hasImage, setHasImage] = useState(false);
