@@ -39,8 +39,8 @@ const PopularSlider = () => {
                                 !isNullOrUndefined(src.post_img_url) && src.post_img_url !== ''
                                     ? {
                                           backgroundImage: `url(${src.post_img_url})`,
-                                          backgroundSize:" cover",
-                                          backgroundColor:"white"
+                                          backgroundSize: ' cover',
+                                          backgroundColor: 'white',
                                       }
                                     : { backgroundImage: `url(${reImg})` }
                             }

@@ -117,7 +117,4 @@ const PostListView = (props) => {
         </div>
     );
 };
-// PostListView.defaultProps = {
-//     img: 'post-replacement.png'
-// };
 export default PostListView;

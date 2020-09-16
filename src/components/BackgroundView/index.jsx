@@ -2,7 +2,7 @@ import React from 'react';
 import './BackgroundView.scss';
 import bgStar from '../../assets/img/bg_stars@2x.png';
 import PropTypes from 'prop-types';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 
 const BackgroundImageView = (props) => {
     return (

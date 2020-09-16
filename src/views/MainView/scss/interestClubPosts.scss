@@ -1,0 +1,31 @@
+@import '../../../scss/variables';
+
+.main-container {
+    .interest-club-list {
+        display: flex;
+        flex-direction: column;
+        .interest-club-list-item {
+            display: flex;
+            flex-direction: column;
+            .interest-club-list-item-header-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                > p,
+                a {
+                    color: #fff;
+                    font-size: 0.8rem;
+                }
+            }
+            .interest-club-list-item-posts-container {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                > div:not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

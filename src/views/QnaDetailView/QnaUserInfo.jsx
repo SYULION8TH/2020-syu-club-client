@@ -1,7 +1,7 @@
 import React from 'react';
 import { CircleFramedImage } from '../../components';
 import PropTypes from 'prop-types';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 const QnaUserInfo = (props) => {
     return (
         <div

@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import { PostAPI } from '../../api';
 import { isNullOrUndefined } from 'util';
 import './scss/PostReplyList.scss';
@@ -17,7 +17,7 @@ const PostReplyList = (props) => {
         fetch: async () => {
             const result = await PostAPI.getPostReplies(props.postId);
             setReplies(result);
-        }
+        },
         // post: async () => {
         //     if (!isNullOrUndefined(info.data)) {
         //         try {
@@ -46,6 +46,9 @@ const PostReplyList = (props) => {
         fn.fetch();
         console.log(replies);
     }, [props.postId]);
+    useEffect(() => {
+        props.setReplies(replies.length);
+    }, [replies]);
 
     // useEffect(() => {
     //     let count = 0;
@@ -73,7 +76,7 @@ const PostReplyList = (props) => {
                                 <PostReplyItem
                                     key={reply.post_reply_id}
                                     content={reply.post_reply_content}
-                                    date={reply.created_at}
+                                    date={moment(reply.created_at).format('YYYY.MM.DD')}
                                 />
                             ))}
                         </div>

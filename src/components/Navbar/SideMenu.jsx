@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserInfo } from '../../modules/User';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
+import SocialConnectLink from './SocialConnectLink';
 
 const InterestClubsList = (props) => {
     if (
@@ -111,18 +112,13 @@ const SideMenu = (props) => {
                 <Link className="menu-link-item" to="/post">
                     활동 포스팅 목록
                 </Link>
-                <a
-                    className="menu-link-item"
-                    href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b674fbd799a4debe8282e2bc5d013e14&redirect_uri=http://www.syu-clubs.com/accounts/kakao/login/callback/`}
-                >
-                    카카오 로그인
-                </a>
+                <SocialConnectLink to="/accounts/kakao/login">카카오 로그인</SocialConnectLink>
+                <SocialConnectLink to="/accounts/google/login">구글 로그인</SocialConnectLink>
             </div>
             <InterestClubsList data={info.data} />
         </div>
     );
 };
-
 SideMenu.propTypes = {
     isOpened: PropTypes.bool.isRequired,
 };

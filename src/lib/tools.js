@@ -1,4 +1,4 @@
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 
 export const getQueriesFromURL = (url) => {
     if (isNullOrUndefined(url)) {

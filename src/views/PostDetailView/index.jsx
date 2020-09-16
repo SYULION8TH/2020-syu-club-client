@@ -42,7 +42,7 @@ const PostDetailView = (props) => {
                 />
             </div>
             <div className="post-detail-reply-container">
-                <PostReplyList postId={postId}/>
+                <PostReplyList setReplies={setReplies}postId={postId}/>
             </div>
         </div>
     );

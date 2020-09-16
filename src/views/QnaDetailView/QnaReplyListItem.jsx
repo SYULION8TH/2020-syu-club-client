@@ -8,7 +8,7 @@ import { BsArrowReturnRight } from 'react-icons/bs';
 import { GoReply } from 'react-icons/go';
 
 import { useSelector } from 'react-redux';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'core-util-is';
 
 const QnaReplyListItem = (props) => {
     const { info } = useSelector((state) => state.user);
