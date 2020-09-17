@@ -1,0 +1,87 @@
+@import '../../../scss/variables';
+.post-detail-reply-container {
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #cea7c9;
+
+    .post-detail-reply-header {
+        color: #5a2052;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .post-detail-reply-wrap {
+        padding: $content-spacing $content-spacing + 10;
+    }
+    .post-detail-reply-list-items-empty {
+        color: white;
+        text-align: center;
+    }
+
+    .post-detail-reply-add-form {
+        position: fixed;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        bottom: 0;
+        background-color: #cea7c9;
+
+        .post-detail-reply-add-form-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin: $content-spacing;
+
+            .post-detail-reply-input-wrapper {
+                width: 100%;
+                padding: 0px 10px;
+                border-radius: 5px;
+                border: 0;
+
+                background-color: $colors-white;
+                display: flex;
+                align-items: center;
+                #__reply-comment-user-name {
+                    color: $colors-material-blue;
+                    font-size: 0.8rem;
+                    width: max-content;
+                    line-height: 0;
+                    margin-right: 5px;
+                }
+                #__reply-content {
+                    background-color: rgba(0, 0, 0, 0);
+                    border: 0;
+                    height: 100%;
+                    flex-grow: 1;
+                }
+            }
+            #__reply-submit-btn {
+                padding: 5px;
+                width: 60px;
+                margin-left: 10px;
+                background-color: $colors-purple;
+                border-radius: 5px;
+                color: $colors-white;
+                box-shadow: 0px 1px 3px $colors-dark-alpha;
+            }
+
+            #__reply-cancel-btn {
+                padding: 5px;
+                width: 60px;
+                margin-left: 10px;
+                background-color: $colors-light-gray;
+                border-radius: 5px;
+                color: $colors-white;
+                box-shadow: 0px 1px 3px $colors-dark-alpha;
+            }
+        }
+    }
+    .post-detail-reply-items-container {
+        .post-detail-reply-item {
+            background-color: white;
+            border-radius: 5px;
+            margin: 15px 0;
+            box-shadow: 2px 3px 7px #3c383861;
+        }
+    }
+}

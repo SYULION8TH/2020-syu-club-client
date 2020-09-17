@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './scss/PostCard.scss';
 import reImg from '../../assets/img/post-replacement.png';
-import { isNullOrUndefined } from 'core-util-is';
+import { isNullOrUndefined} from 'util';
+import EllipsisText from 'react-ellipsis-text';
 //TODO
 //게시글 로딩 속도 해결
 const PostCard = (props) => {
@@ -17,7 +18,7 @@ const PostCard = (props) => {
                     )}
                 </div>
                 <div className="post-card-content">
-                    <p className="post-card-title">{props.title}</p>
+                    <p className="post-card-title"><EllipsisText text={props.title} length={25} /></p>
                     <p className="post-card-club">{props.club}</p>
                     <p className="post-card-date">{props.date}</p>
                 </div>
