@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { PostAPI } from '../../api';
+import './scss/PostDetailView.scss';
 import ImgSlider from './imgSlider';
 import PostDetailContent from './PostDetailContent';
-
+import PostReplyList from './PostReplyList';
 //TODO
 
 const PostDetailView = (props) => {
@@ -39,6 +40,9 @@ const PostDetailView = (props) => {
                     club={posts.club_name}
                     img={posts.img}
                 />
+            </div>
+            <div className="post-detail-reply-container">
+                <PostReplyList postId={postId}/>
             </div>
         </div>
     );

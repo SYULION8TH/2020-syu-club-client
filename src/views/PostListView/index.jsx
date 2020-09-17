@@ -4,57 +4,88 @@ import { PostAPI } from '../../api';
 import PostSearch from '../../components/PostSearch';
 import PostCard from './PostCard';
 import PopularSlider from './PopularSlider';
-
+import { isNullOrUndefined } from 'util';
+import * as LibTools from '../../lib/tools';
 import './scss/PostListView.scss';
 
-//TODO
-//1. 인피니티스크롤
-//2. 대체이미지 삽입
-const PostListView = () => {
+const PostListView = (props) => {
     const [posts, setPosts] = useState([]);
-    const [values, setValues] = useState('');
-
+    const [keyword, setKeyword] = useState('');
+    const [isSearched, setIsSearched] = useState(false);
+    const [nextURL, setNextURL] = useState(null);
     //포스트 리스트 붙이기
-    const fetchPost = async () => {
-        try {
-            const result = await PostAPI.getPosts(values);
-            setPosts([...result]);
+    const post = {
+        fetch: async (params, needToAppend = false) => {
+            let options = {
+                limit: 10,
+            };
+            const response = await PostAPI.getPosts({
+                ...options,
+                ...params,
+            });
+            setNextURL(response.next);
+            if (needToAppend) {
+                setPosts([...posts, ...response.results]);
+            } else {
+                setPosts(response.results);
+            }
+        },
+        ui: {
+            search: () => {
+                if (isSearched) {
+                    // 검색상태인 경우
 
-            console.log(posts);
-        } catch (e) {
-            console.log(e);
-        }
+                    setKeyword('');
+                    setIsSearched(false);
+                    post.fetch({
+                        post_title__contains: '',
+                    });
+                } else {
+                    // 검색 상태가 아닌 경우
+
+                    if (keyword.trim() !== '') {
+                        setIsSearched(true);
+                        post.fetch({
+                            post_title__contains: keyword,
+                        });
+                    } else {
+                        alert('검색어를 입력해주세요');
+                    }
+                }
+            },
+            onScroll: (event) => {
+                if (
+                    event.target.offsetHeight + event.target.scrollTop >=
+                    event.target.scrollHeight
+                ) {
+                    if (!isNullOrUndefined(nextURL)) {
+                        const _queries = LibTools.getQueriesFromURL(nextURL);
+                        post.fetch(
+                            {
+                                ..._queries,
+                                post_title__contains: keyword,
+                            },
+                            true,
+                        );
+                    }
+                }
+            },
+        },
     };
     useEffect(() => {
-        fetchPost();
-    }, [values]);
-    // 스크롤 이벤트 핸들러
-    // const handleScroll = () => {
-    //     const scrollHeight = document.documentElement.scrollHeight;
-    //     const scrollTop = document.documentElement.scrollTop;
-    //     const clientHeight = document.documentElement.clientHeight;
-    //     console.log("scroll");
-    //     if (scrollTop + clientHeight === scrollHeight) {
-    //         fetchPost();
-    //     }
-    // };
-    // useEffect(() => {
-    //     // scroll event listener 등록
-    //     window.addEventListener("scroll", handleScroll, true);
-    //     return () => {
-    //       // scroll event listener 해제
-    //       window.removeEventListener("scroll", handleScroll);
-    //     };
-    //   });
-    if (!posts) {
-        return null;
-    }
+        post.fetch().then(post.fetch);
+    }, [props.match]);
 
     return (
-        <div className="post-list-main-container">
+        <div className="post-list-main-container" onScroll={post.ui.onScroll}>
             <div className="bg-container">
                 <div className="search-container">
-                    <PostSearch setValues={setValues} values={values}>
+                    <PostSearch
+                        isSearched={isSearched}
+                        keyword={keyword}
+                        setKeyword={setKeyword}
+                        search={post.ui.search}
+                    >
                         동아리 포스팅
                     </PostSearch>
                 </div>
@@ -63,9 +94,10 @@ const PostListView = () => {
                 <PopularSlider />
             </div>
 
-            <div className="post-list-container">
+            <div className="post-list-container" >
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
+<<<<<<< HEAD
                     {posts.map((post) => (
                         <PostCard
                             key={post.post_id}
@@ -77,6 +109,23 @@ const PostListView = () => {
                             club_id={post.club}
                         />
                     ))}
+=======
+                    {posts.length >= 0 ? (
+                        posts.map((post) => (
+                            <PostCard
+                                key={post.post_id}
+                                title={post.post_title}
+                                id={post.post_id}
+                                img={post.post_img_url}
+                                date={moment(post.created_at).format('YYYY.MM.DD')}
+                                club={post.club_name}
+                                club_id={post.club}
+                            />
+                        ))
+                    ) : (
+                        <p className="post-list-view-content-placeholder">등록된 질문이 없습니다</p>
+                    )}
+>>>>>>> a773f843dae3cc2ba1aeb56b923b95e71d3a206c
                 </div>
             </div>
         </div>

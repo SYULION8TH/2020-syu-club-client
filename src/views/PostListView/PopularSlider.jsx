@@ -4,8 +4,8 @@ import { PostAPI } from '../../api';
 import { Link } from 'react-router-dom';
 import { getPopularPosts } from '../../api/posts.api';
 import reImg from '../../assets/img/post-replacement@2x.png';
-import { isNullOrUndefined } from 'core-util-is';
-
+import { isNullOrUndefined } from 'util';
+import EllipsisText from 'react-ellipsis-text';
 const PopularSlider = () => {
     const [popPosts, setPopPosts] = useState([]);
 
@@ -45,7 +45,7 @@ const PopularSlider = () => {
                                     : { backgroundImage: `url(${reImg})` }
                             }
                         >
-                            <p className="popPost-title">{src.post_title}</p>
+                            <p className="popPost-title"><EllipsisText text={src.post_title} length={15} /></p>
                             <p className="popPost-club">{src.club}</p>
                         </div>
                     </Link>

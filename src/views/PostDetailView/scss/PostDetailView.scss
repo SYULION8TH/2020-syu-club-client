@@ -1,4 +1,55 @@
-.post-detail-img{
-    width: 100%;
-    height: 45vh;
+@import '../../../scss/variables';
+.post-detail-container{
+    overflow: scroll;
+    height: 100%;
+}
+//포스트 컨테이너
+.post-detail-content-container {
+    display: flex;
+    position: relative;
+    bottom:40px;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+    
+    .post-detail-content-header{
+        padding: $content-spacing+5 $content-spacing+10;
+        .post-detail-club-info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 15px;
+            .post-detail-club-info-name{
+                font-size: 0.8rem;
+                margin-left: 10px;
+            }
+        }
+        
+        .post-detail-header-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .post-detail-header-sub{
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: $colors-text-sub;
+            .post-detail-view-sub-left {
+                float:left;
+            }
+            .post-detail-view-sub-right {
+                float:right;
+                margin-right:10px;
+            }
+        }
+        
+    }
+    .post-detail-content-main{
+        background-color: #F2F2F2;
+        .post-detail-content-text{
+            padding: $content-spacing $content-spacing+10;
+            margin-top:5px;
+            background-color:white;
+        }
+    }   
 }
