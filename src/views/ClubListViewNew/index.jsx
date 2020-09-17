@@ -6,9 +6,10 @@ import { isNullOrUndefined } from 'core-util-is';
 import { useHistory } from 'react-router';
 import { getQueriesFromURL } from '../../lib/tools';
 
-const ClubListViewNew = () => {
+const ClubListViewNew = (props) => {
     let requested = false;
     const history = useHistory();
+    const queries = getQueriesFromURL(props?.location?.search);
     const [keyword, setKeyword] = useState(null);
     const [nextURL, setNextURL] = useState(null);
     const [clubs, setClubs] = useState([]);
@@ -32,6 +33,7 @@ const ClubListViewNew = () => {
 
     useEffect(() => {
         fetch();
+        console.log(queries);
     }, []);
 
     useEffect(() => {

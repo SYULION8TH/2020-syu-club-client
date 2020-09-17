@@ -11,7 +11,7 @@ import { Card, PostCard, ClubCard } from '../../components';
 import { isNullOrUndefined } from 'core-util-is';
 import InterestClubPosts from './InterestClubPosts';
 
-const MainView = () => {
+const MainView = (props) => {
     const _innerHeight = window.innerHeight;
     const [coverOpacity, setCoverOpacity] = useState(0);
 
@@ -43,7 +43,7 @@ const MainView = () => {
             }}
         >
             <AnimatedBackground coverOpacity={coverOpacity} />
-            <SearchForm />
+            <SearchForm history={props.history} />
             <div className="contents-container">
                 <div className="contents-wrapper">
                     <InterestClubPosts />

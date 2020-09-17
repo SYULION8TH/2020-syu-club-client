@@ -5,12 +5,26 @@ import { RiArrowUpSLine } from 'react-icons/ri';
 
 const SearchForm = (props) => {
     const [loaded, setLoaded] = useState(false);
+    const [keyword, setKeyword] = useState('');
 
     useEffect(() => {
         setTimeout(() => {
             setLoaded(true);
         }, 1000);
+        return () => {
+            setKeyword('');
+        };
     }, []);
+
+    const fn = {
+        search: () => {
+            if (keyword.trim().length === 0) {
+                alert('검색어를 입력해주세요');
+            } else {
+                props.history.push(`/club?keyword=${keyword}`);
+            }
+        },
+    };
 
     return (
         <div
@@ -19,8 +33,12 @@ const SearchForm = (props) => {
             }`}
         >
             <div className="search-form-wrapper ">
-                <input id="search-input" />
-                <button type="button" id="search-btn">
+                <input
+                    id="search-input"
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                />
+                <button type="button" id="search-btn" onClick={fn.search}>
                     <GoSearch />
                 </button>
             </div>

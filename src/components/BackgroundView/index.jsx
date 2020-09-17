@@ -8,7 +8,7 @@ const BackgroundImageView = (props) => {
     return (
         <div
             className={`__background-image-view-container ${
-                props.className !== undefined && props.className !== null ? '' : props.className
+                props.className !== undefined && props.className !== null ? props.className : ''
             }`}
             onScroll={!isNullOrUndefined(props.onScroll) ? props.onScroll : () => {}}
         >
