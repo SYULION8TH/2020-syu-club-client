@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Navbar.scss';
 import AnimatedMenuIcon from './AnimatedMenuIcon';
 
 import SideMenu from './SideMenu';
 
-import { useHistory } from 'react-router';
-
 export const Navbar = (props) => {
-    const history = useHistory();
+    // const history = useHistory();
     const [menuOpened, setMenuOpened] = useState(false);
-    console.log(props);
+    // console.log(props);
     // history.listen(() => {
     //     setMenuOpened(false);
     // });

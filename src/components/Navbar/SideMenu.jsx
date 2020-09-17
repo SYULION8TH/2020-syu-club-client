@@ -54,25 +54,10 @@ const SideMenu = (props) => {
     };
 
     useEffect(() => {
-        if (isNullOrUndefined(info.data)) {
-            fn.user.fetch();
-        }
+        // if (isNullOrUndefined(info.data)) {
+        //     fn.user.fetch();
+        // }
     }, []);
-
-    useEffect(() => {
-        if (!isNullOrUndefined(info.error)) {
-            // if (info.error.response.status === 401 || info.error.response.status === 403) {
-            // 로그인이 안된 경우
-            // } else {
-            // 실제 통신에 에러가 발생한 경우
-            // }
-        } else if (!isNullOrUndefined(info.data)) {
-            // console.log(info.data);
-        } else {
-            // console.log('requested..');
-        }
-        return () => {};
-    }, [info.loading]);
 
     return (
         <div className={`navbar-content-container ${props.isOpened ? 'active' : ''}`}>

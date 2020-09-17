@@ -45,7 +45,9 @@ const PopularSlider = () => {
                                     : { backgroundImage: `url(${reImg})` }
                             }
                         >
-                            <p className="popPost-title"><EllipsisText text={src.post_title} length={15} /></p>
+                            <p className="popPost-title">
+                                <EllipsisText text={src.post_title} length={15} />
+                            </p>
                             <p className="popPost-club">{src.club}</p>
                         </div>
                     </Link>
