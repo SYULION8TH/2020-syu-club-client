@@ -1,65 +1,63 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
+import { useSelector } from 'react-redux';
 import { PostAPI } from '../../api';
 import { isNullOrUndefined } from 'util';
 import './scss/PostReplyList.scss';
 import PostReplyItem from './PostReplyItem';
 
-//댓글 이름띄우기
+//서버 켜지면 댓글 추가되는지 확인하기
 const PostReplyList = (props) => {
     const [replies, setReplies] = useState([]);
     const [replyContent, setReplyContent] = useState('');
     const [selectedComment, setSelectedComment] = useState(null);
 
-    // const { info } = useSelector((state) => state.user);
+    const { info } = useSelector((state) => state.user);
 
     const fn = {
         fetch: async () => {
             const result = await PostAPI.getPostReplies(props.postId);
             setReplies(result);
         },
-        // post: async () => {
-        //     if (!isNullOrUndefined(info.data)) {
-        //         try {
-        //             let options = {};
-        //             options.post_reply_content = replyContent;
-        //             if (!isNullOrUndefined(selectedComment)) {
-        //                 options.parent_reply = selectedComment.post_reply_id;
-        //             }
-        //             await PostAPI.postReply(props.postId, options);
+        post: async () => {
+            // if (!isNullOrUndefined(info.data)) {
+                try {
+                    let options = {};
+                    options.post_reply_content = replyContent;
+                    if (!isNullOrUndefined(selectedComment)) {
+                        options.parent_reply = selectedComment.post_reply_id;
+                    }
+                    await PostAPI.postReply(props.postId, options);
 
-        //             // 등록 완료
-        //             await fn.fetch();
+                    // 등록 완료
+                    await fn.fetch();
 
-        //             setReplyContent('');
-        //             setSelectedComment(null);
-        //         } catch (e) {
-        //             alert(e.message);
-        //         }
-        //     } else {
-        //         alert('로그인이 필요합니다');
-        //     }
-        // },
+                    setReplyContent('');
+                    setSelectedComment(null);
+                } catch (e) {
+                    alert(e.message);
+                }
+            // } else {
+            //     alert('로그인이 필요합니다');
+            // }
+        },
     };
 
     useEffect(() => {
         fn.fetch();
         console.log(replies);
     }, [props.postId]);
-    useEffect(() => {
-        props.setReplies(replies.length);
-    }, [replies]);
 
-    // useEffect(() => {
-    //     let count = 0;
-    //     replies.forEach((reply) => {
-    //         count++;
-    //         reply.reply.forEach((children) => {
-    //             count++;
-    //         });
-    //     });
-    //     props.onCount(count);
-    // }, [replies]);
+    useEffect(() => {
+        let count = 0;
+        replies.forEach((reply) => {
+            count++;
+            reply.reply.forEach((children) => {
+                count++;
+            });
+        });
+        props.setReplies(count);
+    }, [replies]);
 
     return (
         <>
@@ -72,11 +70,13 @@ const PostReplyList = (props) => {
                         </div>
                     ) : (
                         <div className="post-detail-reply-items-container">
-                            {replies.map((reply) => (
+                            {replies.map((item ,idx) => (
                                 <PostReplyItem
-                                    key={reply.post_reply_id}
-                                    content={reply.post_reply_content}
-                                    date={moment(reply.created_at).format('YYYY.MM.DD')}
+                                    key={idx}
+                                    data = {item}
+                                    content={item.post_reply_content}
+                                    date={moment(item.created_at).format('YYYY.MM.DD')}
+                                    onSelected={setSelectedComment}
                                 />
                             ))}
                         </div>
@@ -95,11 +95,11 @@ const PostReplyList = (props) => {
                         <input
                             type="text"
                             id="__reply-content"
-                            // placeholder={
-                            //     isNullOrUndefined(info.data)
-                            //         ? '로그인 해주세요'
-                            //         : '댓글을 입력해주세요'
-                            // }
+                            placeholder={
+                                isNullOrUndefined(info.data)
+                                    ? '로그인 해주세요'
+                                    : '댓글을 입력해주세요'
+                            }
                             // disabled={isNullOrUndefined(info.data)}
                             value={replyContent}
                             onChange={(event) => setReplyContent(event.target.value)}

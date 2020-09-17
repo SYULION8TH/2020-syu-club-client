@@ -30,9 +30,9 @@ const PostSearch = (props) => {
     );
 };
 
-PostSearch.propTypes = {
-    values: PropTypes.oneOf([PropTypes.string.isRequired, PropTypes.array.isRequired]),
-    setValues: PropTypes.func.isRequired,
-};
+// PostSearch.propTypes = {
+//     values: PropTypes.oneOf([PropTypes.string.isRequired, PropTypes.array.isRequired]),
+//     setValues: PropTypes.func.isRequired,
+// };
 
 export default PostSearch;
