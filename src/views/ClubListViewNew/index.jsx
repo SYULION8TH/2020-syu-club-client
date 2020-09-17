@@ -10,7 +10,8 @@ const ClubListViewNew = (props) => {
     let requested = false;
     const history = useHistory();
     const queries = getQueriesFromURL(props?.location?.search);
-    const [keyword, setKeyword] = useState(null);
+    const [keyword, setKeyword] = useState('');
+    const [isSearched, setIsSearched] = useState(false);
     const [nextURL, setNextURL] = useState(null);
     const [clubs, setClubs] = useState([]);
     const fetch = async (params) => {
@@ -26,30 +27,53 @@ const ClubListViewNew = (props) => {
         }
     };
 
-    const clear = () => {
-        setNextURL(null);
-        setClubs([]);
-    };
-
     useEffect(() => {
-        fetch();
-        console.log(queries);
+        // 주소에 keyword를 붙일 경우 자동 검색 추가
+        if (queries && queries.keyword) {
+            setKeyword(queries.keyword);
+            setIsSearched(true);
+            fn.fetch({ search: queries.keyword });
+        } else {
+            fn.fetch();
+        }
     }, []);
 
-    useEffect(() => {
-        if (isNullOrUndefined(keyword)) {
-            console.log('keyword is empty');
-        } else {
-            // 빈 문자열
-            if (keyword === '') {
-                console.log('empty string', keyword);
-            } else if (typeof keyword.map === 'function') {
-                console.log('keyword is array', keyword);
-            } else {
-                console.log('what is this?', keyword);
+    const fn = {
+        fetch: async (params, needToAppend = false) => {
+            if (!requested) {
+                requested = true;
+                const response = await ClubsAPI.getClubs({
+                    limit: 10,
+                    ...params,
+                });
+                requested = false;
+                setNextURL(response.next);
+                if (needToAppend) {
+                    setClubs([...clubs, response.results]);
+                } else {
+                    setClubs(response.results);
+                }
             }
-        }
-    }, [keyword]);
+        },
+        clear: () => {},
+        search: async () => {
+            if (!isSearched) {
+                if (keyword.trim() !== '') {
+                    setIsSearched(true);
+                    await fn.fetch({
+                        search: keyword,
+                    });
+                } else {
+                    alert('검색어를 입력해주세요');
+                }
+            } else {
+                setIsSearched(false);
+                setKeyword('');
+                await fn.fetch();
+            }
+        },
+    };
+
     return (
         <BackgroundImageView
             className="__club-list-view-container"
@@ -57,7 +81,12 @@ const ClubListViewNew = (props) => {
             header={
                 <div className="club-list-view-header-container ">
                     <div className="club-list-view-header-wrapper">
-                        <PostSearch values={keyword} setValues={setKeyword}>
+                        <PostSearch
+                            keyword={keyword}
+                            setKeyword={setKeyword}
+                            isSearched={isSearched}
+                            search={fn.search}
+                        >
                             <span className="club-list-view-header-title">동아리 목록</span>
                         </PostSearch>
                     </div>
@@ -70,7 +99,10 @@ const ClubListViewNew = (props) => {
                 ) {
                     if (!isNullOrUndefined(nextURL)) {
                         const _queries = getQueriesFromURL(nextURL);
-                        fetch(_queries);
+                        fetch({
+                            ..._queries,
+                            search: keyword,
+                        });
                     }
                 }
             }}

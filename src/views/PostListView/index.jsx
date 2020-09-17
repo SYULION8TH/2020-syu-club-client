@@ -97,19 +97,6 @@ const PostListView = (props) => {
             <div className="post-list-container" >
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
-<<<<<<< HEAD
-                    {posts.map((post) => (
-                        <PostCard
-                            key={post.post_id}
-                            title={post.post_title}
-                            id={post.post_id}
-                            img={post.post_img_url}
-                            date={moment(post.created_at).format('YYYY.MM.DD')}
-                            club={post.club_name}
-                            club_id={post.club}
-                        />
-                    ))}
-=======
                     {posts.length >= 0 ? (
                         posts.map((post) => (
                             <PostCard
@@ -125,7 +112,6 @@ const PostListView = (props) => {
                     ) : (
                         <p className="post-list-view-content-placeholder">등록된 질문이 없습니다</p>
                     )}
->>>>>>> a773f843dae3cc2ba1aeb56b923b95e71d3a206c
                 </div>
             </div>
         </div>

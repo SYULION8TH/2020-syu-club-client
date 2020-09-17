@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 //props type정의하기
 //usecallback쓸지말지 정하기
 const PostSearch = (props) => {
-    
     return (
         <div className="__search-wrapper">
             {/* 검색창 위 텍스트를 children으로 받아 수정합니다. */}
@@ -24,15 +23,16 @@ const PostSearch = (props) => {
                 <button id="__search-btn" type="button" onClick={props.search}>
                     {props.isSearched ? <BiX /> : <GoSearch />}
                 </button>
-                
             </div>
         </div>
     );
 };
 
 PostSearch.propTypes = {
-    values: PropTypes.oneOf([PropTypes.string.isRequired, PropTypes.array.isRequired]),
-    setValues: PropTypes.func.isRequired,
+    keyword: PropTypes.string.isRequired,
+    setKeyword: PropTypes.func.isRequired,
+    search: PropTypes.func.isRequired,
+    isSearched: PropTypes.bool.isRequired,
 };
 
 export default PostSearch;
