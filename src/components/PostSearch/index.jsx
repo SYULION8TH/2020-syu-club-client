@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 const PostSearch = (props) => {
     return (
         <div className="__search-wrapper">
-            {/* 검색창 위 텍스트를 children으로 받아 수정합니다. */}
             <p className="__search-text-top">{props.children}</p>
             <div className="__search-form-wrapper ">
                 <input
