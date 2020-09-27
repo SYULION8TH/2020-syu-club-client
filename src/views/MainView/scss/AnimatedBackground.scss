@@ -19,7 +19,7 @@
             position: absolute;
             bottom: -40%;
             left: -75%;
-            width: 250%;
+            width: 230%;
             z-index: $background-z-index + 1;
         }
 
@@ -32,8 +32,8 @@
 
         #bgMoon {
             position: absolute;
-            width: 130px;
-            height: 130px;
+            width: 90px;
+            height: 90px;
             top: 50%;
             margin-top: 0px;
             left: -65px;
@@ -53,9 +53,9 @@
 
             #bgBuilding {
                 transition: 2s;
-                bottom: -25%;
-                width: 150%;
-                left: -25%;
+                bottom: -8%;
+                width: 110%;
+                left: -5%;
             }
 
             #bgStars {
@@ -64,8 +64,8 @@
             }
 
             #bgMoon {
-                left: 5%;
-                margin-top: -20px;
+                left: 9%;
+                margin-top: -40px;
                 transition: 2s;
             }
         }

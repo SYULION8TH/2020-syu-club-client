@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './scss/AnimatedBackground.scss';
 
-import imgBuilding from '../../assets/img/bg_building@2x.png';
+import imgBuilding from '../../assets/img/bg-building1.png';
 import imgStars from '../../assets/img/bg_stars@2x.png';
 import imgMoon from '../../assets/img/bg_moon@2x.png';
 

@@ -1,0 +1,82 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.__bg-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-image: $bg-gradient2;
+    z-index: $background-z-index;
+
+    #bgBuilding {
+        position: absolute;
+        bottom: -8%;
+        left: -5%;
+        width: 110%;
+        z-index: $background-z-index + 1;
+    }
+
+    #bgStars {
+        position: absolute;
+        width: 100%;
+        z-index: $background-z-index - 1;
+    }
+
+    #bgMoon {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        top: 20%;
+        margin-top: -40px;
+        right: 15%;
+        z-index: $background-z-index;
+    }
+
+    #logo {
+        position: absolute;
+        left: 40%;
+        top: 15%;
+        height: 13%;
+        margin: 0 auto;
+    }
+
+    #logo-position{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        top: 30%;
+        position: relative;
+        height: 25%;
+        width: 80%;
+        margin: auto;
+        border-radius: 15px;
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        #logo-container{
+            width: 100%;
+            flex-direction: column;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgba(255,255,255,0.4);
+            border-radius: 15px;
+            .text{
+                color: white;
+            }
+            :first-child{
+                font-size: 20px;
+            }
+            :last-child{
+                font-size: 15px;
+            }
+            div{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 70%;
+                z-index: 1100000;
+            }
+        }
+    }
+}
