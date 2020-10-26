@@ -5,9 +5,10 @@ import moment from 'moment';
 import { isNullOrUndefined } from 'core-util-is';
 import EllipsisText from 'react-ellipsis-text';
 
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const PostCard = (props) => {
+    
     const history = useHistory();
     return (
         <div

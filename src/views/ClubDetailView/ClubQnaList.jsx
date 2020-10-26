@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { QnaAPI } from '../../api';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import { MdChatBubbleOutline } from 'react-icons/md';
 

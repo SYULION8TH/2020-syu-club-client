@@ -3,12 +3,14 @@ import { ClubsAPI } from '../../api';
 import { BackgroundImageView, PostSearch, ClubCard } from '../../components';
 import './scss/index.scss';
 import { isNullOrUndefined } from 'core-util-is';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { getQueriesFromURL } from '../../lib/tools';
 
 const ClubListViewNew = (props) => {
     let requested = false;
     const history = useHistory();
+
+    console.log(history , props);
     const queries = getQueriesFromURL(props?.location?.search);
     const [keyword, setKeyword] = useState('');
     const [isSearched, setIsSearched] = useState(false);

@@ -4,7 +4,7 @@ import { Navbar, ClubCard, PostSearch, BackgroundImageView } from '../../compone
 import * as LibTools from '../../lib/tools';
 import './scss/style.scss';
 import { isNullOrUndefined } from 'core-util-is';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const ClubListView = () => {
     const [infos, setInfo] = useState([]);

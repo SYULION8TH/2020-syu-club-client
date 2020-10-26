@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { isNullOrUndefined } from 'core-util-is';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import './scss/QnaDetailView.scss';
 import { BackgroundImageView } from '../../components';
