@@ -9,13 +9,12 @@ import { getQueriesFromURL } from '../../lib/tools';
 const ClubListViewNew = (props) => {
     let requested = false;
     const history = useHistory();
-
-    console.log(history , props);
     const queries = getQueriesFromURL(props?.location?.search);
     const [keyword, setKeyword] = useState('');
     const [isSearched, setIsSearched] = useState(false);
     const [nextURL, setNextURL] = useState(null);
     const [clubs, setClubs] = useState([]);
+    
     const fetch = async (params) => {
         if (!requested) {
             requested = true;
