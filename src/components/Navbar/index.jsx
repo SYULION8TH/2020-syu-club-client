@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import './Navbar.scss';
 import AnimatedMenuIcon from './AnimatedMenuIcon';
-<<<<<<< HEAD
 import ProfileIcon from './ProfileIcon';
-=======
 import { useHistory } from 'react-router-dom';
->>>>>>> dev
 import SideMenu from './SideMenu';
 
 export const Navbar = (props) => {
@@ -19,7 +16,7 @@ export const Navbar = (props) => {
             <AnimatedMenuIcon isOpened={menuOpened} setIsOpened={(v) => setMenuOpened(v)} />
             <SideMenu isOpened={menuOpened} />
             <div className={`navbar-container-cover ${menuOpened ? 'active' : ''}`}></div>
-            <ProfileIcon/>
+            <ProfileIcon />
         </div>
     );
 };
