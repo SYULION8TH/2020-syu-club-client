@@ -3,7 +3,7 @@ import { MdChatBubbleOutline } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import 'moment/locale/ko';
 import moment from 'moment';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const QnaListItem = (props) => {
     const history = useHistory();

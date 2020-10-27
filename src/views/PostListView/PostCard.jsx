@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './scss/PostCard.scss';
 import reImg from '../../assets/img/post-replacement.png';
-import { isNullOrUndefined} from 'util';
 import EllipsisText from 'react-ellipsis-text';
+
 //TODO
 //게시글 로딩 속도 해결
 const PostCard = (props) => {
@@ -11,14 +11,16 @@ const PostCard = (props) => {
         <Link to={`/club/${props.club_id}/post/${props.id}`}>
             <div className="post-card-wrapper">
                 <div className="post-card-img">
-                    {!isNullOrUndefined(props.img) && props.img !== '' ? (
+                    {props.img !== null && props.img !== undefined && props.img !== '' ? (
                         <img src={props.img} alt={`${props.title} 이미지`} />
                     ) : (
                         <img src={reImg} alt={`${props.title} 이미지`} />
                     )}
                 </div>
                 <div className="post-card-content">
-                    <p className="post-card-title"><EllipsisText text={props.title} length={25} /></p>
+                    <p className="post-card-title">
+                        <EllipsisText text={props.title} length={25} />
+                    </p>
                     <p className="post-card-club">{props.club}</p>
                     <p className="post-card-date">{props.date}</p>
                 </div>
@@ -26,5 +28,4 @@ const PostCard = (props) => {
         </Link>
     );
 };
-
 export default PostCard;

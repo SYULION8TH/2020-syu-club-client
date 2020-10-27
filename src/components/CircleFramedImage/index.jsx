@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isNullOrUndefined } from 'core-util-is';
 import { MdPerson } from 'react-icons/md';
 import './CircleFramedImage.scss';
 
@@ -8,7 +7,10 @@ const CircleFramedImage = (props) => {
     return (
         <div
             style={
-                !isNullOrUndefined(props.width) && !isNullOrUndefined(props.width)
+                props.width !== null &&
+                props.width !== undefined &&
+                props.height !== null &&
+                props.height !== undefined
                     ? {
                           width: `${props.width}px`,
                           height: `${props.height}px`,
@@ -16,11 +18,11 @@ const CircleFramedImage = (props) => {
                     : {}
             }
             className={`__circle-framed-image-container ${
-                isNullOrUndefined(props.className) ? '' : props.className
+                props.className !== null || props.className !== undefined ? props.className : ''
             }`}
         >
             <div className="__circle-framed-image-wrapper">
-                {!isNullOrUndefined(props.imgUrl) && props.imgUrl !== '' ? (
+                {props.imgUrl !== null && props.imgUrl !== undefined && props.imgUrl !== '' ? (
                     <img className="__circle-framed-image" src={props.imgUrl} alt={props.imgAlt} />
                 ) : (
                     <div className="__circle-framed-image-placeholder">
@@ -36,7 +38,7 @@ const CircleFramedImage = (props) => {
 
 CircleFramedImage.propTypes = {
     className: PropTypes.string,
-    imgUrl: PropTypes.string.isRequired,
+    imgUrl: PropTypes.string,
     imgAlt: PropTypes.string.isRequired,
     width: PropTypes.number,
     height: PropTypes.number,
