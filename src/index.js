@@ -22,7 +22,7 @@ import PostInClubView from './views/PostInClubView';
 import { Navbar, AxiosProgressBar } from './components';
 
 // ROUTER
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, useHistory } from 'react-router-dom';
 
 // REDUX
 import { createStore, applyMiddleware } from 'redux';

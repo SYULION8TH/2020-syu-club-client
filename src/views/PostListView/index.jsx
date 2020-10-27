@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { PostAPI } from '../../api';
 import PostSearch from '../../components/PostSearch';
-import PostCard from './PostCard';
+// import PostCard from './PostCard';
+// import PostCard from '../../components/PostCard';
+import WidePostCard from '../../components/WidePostCard';
 import PopularSlider from './PopularSlider';
 import { isNullOrUndefined } from 'util';
 import * as LibTools from '../../lib/tools';
@@ -55,8 +57,8 @@ const PostListView = (props) => {
             },
             onScroll: (event) => {
                 if (
-                    event.target.offsetHeight + event.target.scrollTop >=
-                    event.target.scrollHeight
+                    event.target.className === 'post-list-main-container' &&
+                    event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight
                 ) {
                     if (!isNullOrUndefined(nextURL)) {
                         const _queries = LibTools.getQueriesFromURL(nextURL);
@@ -94,21 +96,25 @@ const PostListView = (props) => {
                 <PopularSlider />
             </div>
 
-            <div className="post-list-container" >
+            <div className="post-list-container">
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
                     {posts.length >= 0 ? (
-                        posts.map((post) => (
-                            <PostCard
-                                key={post.post_id}
-                                title={post.post_title}
-                                id={post.post_id}
-                                img={post.post_img_url}
-                                date={moment(post.created_at).format('YYYY.MM.DD')}
-                                club={post.club_name}
-                                club_id={post.club}
-                            />
-                        ))
+                        posts.map((post) => {
+                            return (
+                                <WidePostCard
+                                    key={post.post_id}
+                                    title={post.post_title}
+                                    id={post.post_id}
+                                    img={post.post_img_url}
+                                    date={post.created_at}
+                                    club={post.club_name}
+                                    club_id={post.club}
+                                    views={post.views}
+                                    likes={post.likes}
+                                />
+                            );
+                        })
                     ) : (
                         <p className="post-list-view-content-placeholder">등록된 질문이 없습니다</p>
                     )}

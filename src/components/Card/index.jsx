@@ -5,7 +5,11 @@ import { isNullOrUndefined } from 'core-util-is';
 
 const index = (props) => {
     return (
-        <div className="__card-container">
+        <div
+            className={`__card-container ${
+                !isNullOrUndefined(props.className) ? props.className : ''
+            }`}
+        >
             {isNullOrUndefined(props.title) ? (
                 <></>
             ) : (

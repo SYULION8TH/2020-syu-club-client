@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import './Navbar.scss';
 import AnimatedMenuIcon from './AnimatedMenuIcon';
+<<<<<<< HEAD
 import ProfileIcon from './ProfileIcon';
+=======
+import { useHistory } from 'react-router-dom';
+>>>>>>> dev
 import SideMenu from './SideMenu';
 
 export const Navbar = (props) => {
-    // const history = useHistory();
+    const history = useHistory();
     const [menuOpened, setMenuOpened] = useState(false);
-    // console.log(props);
-    // history.listen(() => {
-    //     setMenuOpened(false);
-    // });
+    history.listen(() => {
+        setMenuOpened(false);
+    });
     return (
         <div className={`navbar-container`}>
             <AnimatedMenuIcon isOpened={menuOpened} setIsOpened={(v) => setMenuOpened(v)} />

@@ -33,12 +33,15 @@ export const getPopularPosts = async () => {
     return response.data;
 };
 
-export const getPostsRelatedToClub = async (clubId, params) => {
+export const getPostsRelatedToClub = async (clubId, params, nextUrl) => {
     const host = process.env.REACT_APP_API_HOST;
     const response = await axios({
         method: 'GET',
         url: `${host}/clubs/${clubId}/posts`,
-        params: params,
+        params: {
+            limit: 10,
+            ...params,
+        },
     });
     return response.data;
 };

@@ -3,7 +3,7 @@ import { ClubsAPI } from '../../api';
 import { BackgroundImageView, PostSearch, ClubCard } from '../../components';
 import './scss/index.scss';
 import { isNullOrUndefined } from 'core-util-is';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { getQueriesFromURL } from '../../lib/tools';
 
 const ClubListViewNew = (props) => {
@@ -14,6 +14,7 @@ const ClubListViewNew = (props) => {
     const [isSearched, setIsSearched] = useState(false);
     const [nextURL, setNextURL] = useState(null);
     const [clubs, setClubs] = useState([]);
+    
     const fetch = async (params) => {
         if (!requested) {
             requested = true;
