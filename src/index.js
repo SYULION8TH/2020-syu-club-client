@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-
+import { CSSTransition } from 'react-transition-group';
 import './scss/common.scss';
 
 // VIEWS
@@ -65,27 +65,29 @@ ReactDOM.render(
                 <>
                     <AxiosProgressBar store={store} />
                     <Navbar />
-                    <Switch>
-                        <Route exact path="/" component={MainView}></Route>
-                        <Route path="/login" component={LoginView}></Route>
-                        <Route path="/profile" component={UserProfileView}></Route>
-                        <Route exact path="/club" component={ClubListViewNew}></Route>
-                        <Route
-                            exact
-                            path="/club/:club_id/qna/:qna_id"
-                            component={QnaDetailView}
-                        ></Route>
-                        <Route exact path="/club/:club_id/qna" component={QnaListViewNew}></Route>
-                        <Route exact path="/club/:club_id" component={ClubDetailView}></Route>
-                        <Route exact path="/club/:club_id/post" component={PostInClubView}></Route>
-                        <Route exact path="/post" component={PostListView}></Route>
-                        <Route
-                            exact
-                            path="/club/:club_id/post/:post_id"
-                            component={PostDetailView}
-                        ></Route>
-                        <Route path="*" component={NotFoundView}></Route>
-                    </Switch>
+                    <CSSTransition timeout={3000000} className="fade">
+                        <Switch>
+                            <Route exact path="/" component={MainView}></Route>
+                            <Route path="/login" component={LoginView}></Route>
+                            <Route path="/profile" component={UserProfileView}></Route>
+                            <Route exact path="/club" component={ClubListViewNew}></Route>
+                            <Route
+                                exact
+                                path="/club/:club_id/qna/:qna_id"
+                                component={QnaDetailView}
+                            ></Route>
+                            <Route exact path="/club/:club_id/qna" component={QnaListViewNew}></Route>
+                            <Route exact path="/club/:club_id" component={ClubDetailView}></Route>
+                            <Route exact path="/club/:club_id/post" component={PostInClubView}></Route>
+                            <Route exact path="/post" component={PostListView}></Route>
+                            <Route
+                                exact
+                                path="/club/:club_id/post/:post_id"
+                                component={PostDetailView}
+                            ></Route>
+                            <Route path="*" component={NotFoundView}></Route>
+                        </Switch>
+                    </CSSTransition>
                 </>
             </Router>
         </Provider>
