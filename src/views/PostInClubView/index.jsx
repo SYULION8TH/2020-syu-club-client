@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { PostAPI } from '../../api';
 import PostSearch from '../../components/PostSearch';
-import PostCard from '../PostListView/PostCard';
+import WidePostCard from '../../components/WidePostCard';
 import * as Tools from '../../lib/tools';
 
 import '../PostListView/scss/PostListView.scss';
@@ -85,13 +85,16 @@ const PostInClubView = (props) => {
                 <div className="post-list">
                     <p className="post-list-head">전체 포스팅</p>
                     {posts.map((post) => (
-                        <PostCard
+                        <WidePostCard
                             key={post.post_id}
                             title={post.post_title}
                             id={post.post_id}
                             img={post.post_img_url}
                             date={moment(post.created_at).format('YYYY.MM.DD')}
                             club={post.club_name}
+                            club_id={post.club}
+                            views={post.views}
+                            likes={post.likes}
                         />
                     ))}
                 </div>

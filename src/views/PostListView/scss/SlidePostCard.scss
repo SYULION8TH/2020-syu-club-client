@@ -1,0 +1,120 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+.__slide-post-card-link {
+    min-width: 44vw;
+    height: 250px;
+    margin-right: 10px;
+    &:first-child {
+        margin-left: 10px;
+    }
+    &:last-child {
+        padding-right: 10px;
+    }
+
+    .__slide-post-card-container {
+        box-shadow: 3px 3px 5px 0px #00000063;
+        height: 230px;
+
+        .__slide-post-card-content {
+            height: 100%;
+            width: auto;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin: 0;
+
+            $img-z-index: 100;
+            $title-z-index: 101;
+            .__slide-post-card-img-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                z-index: $img-z-index;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow-y: hidden;
+                overflow-x: hidden;
+                border-radius: 5px;
+                background: linear-gradient(0deg, #3d3d8440, transparent);
+                .__slide-post-card-img {
+                    // border-radius: 5px;
+                    // max-width: 100%;
+                    height: 100%;
+                    &.placeholder {
+                        background: linear-gradient(
+                            -45deg,
+                            #1c1c73 0%,
+                            #912f74 50%,
+                            #ec6b97 100%,
+                            transparent
+                        );
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .__slide-post-card-desc {
+                height: 100%;
+                z-index: $title-z-index;
+                // background-color: #fff;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                background: linear-gradient(
+                    -45deg,
+                    #1c1c7378 0%,
+                    #912f7412 50%,
+                    #ec6b970f 100%,
+                    transparent
+                );
+                .__slide-post-card-desc-row {
+                    &:last-child {
+                        margin-top: 5px;
+                    }
+                    .__slide-post-card-club-name {
+                        color: #fff;
+                        text-shadow: $colors-light-dark 1px 1px 3px;
+                        font-weight: 400;
+                        font-size: 8px;
+                    }
+                    .__slide-post-card-title {
+                        color: #fff;
+                        text-shadow: $colors-light-dark 1px 1px 3px;
+                        font-weight: 600;
+                    }
+                    .__slide-post-card-create-date {
+                        color: #fff;
+                        text-shadow: $colors-light-dark 1px 1px 3px;
+                        font-size: 6px;
+                    }
+
+                    &.row {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        color: #fff;
+                        text-shadow: $colors-light-dark 1px 1px 3px;
+                        font-size: 6px;
+                        span {
+                            margin-right: 3px;
+                            path {
+                                stroke: rgb(255, 255, 255);
+                            }
+                            b {
+                                margin-left: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
