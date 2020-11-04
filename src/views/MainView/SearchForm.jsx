@@ -3,6 +3,8 @@ import './scss/SearchForm.scss';
 import { GoSearch } from 'react-icons/go';
 import { RiArrowUpSLine } from 'react-icons/ri';
 
+import Logo, { LOGO_COLOR_PRESETS, LOGO_TYPES } from '../../components/Logo';
+
 const SearchForm = (props) => {
     const [loaded, setLoaded] = useState(false);
     const [keyword, setKeyword] = useState('');
@@ -32,6 +34,12 @@ const SearchForm = (props) => {
                 props.opened ? 'opened' : ''
             }`}
         >
+            <Logo
+                className="search-form-logo"
+                type={LOGO_TYPES.VERTICAL_WITH_TEXT}
+                color={LOGO_COLOR_PRESETS.YELLOW}
+                size={30}
+            />
             <div className="search-form-wrapper ">
                 <input
                     id="search-input"

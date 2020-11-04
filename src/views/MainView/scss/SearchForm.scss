@@ -105,6 +105,10 @@
     }
 
     &.loaded {
+        .search-form-logo {
+            transition: 2s;
+            opacity: 1;
+        }
         #search-help-text {
             transition: 2s;
             opacity: 1;

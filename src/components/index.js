@@ -6,6 +6,8 @@ import CircleFramedImage from './CircleFramedImage';
 import BackgroundImageView from './BackgroundView';
 import PostSearch from './PostSearch';
 import AxiosProgressBar from './AxiosProgessBar';
+import Logo from './Logo';
+import WidePostCard from './WidePostCard';
 
 export {
     Navbar,
@@ -16,4 +18,6 @@ export {
     BackgroundImageView,
     PostSearch,
     AxiosProgressBar,
+    Logo,
+    WidePostCard,
 };

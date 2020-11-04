@@ -1,0 +1,12 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+@import './MainViewCommon.scss';
+
+.main-child-view.__main-view-first-section-container {
+    // background-color: red;
+    z-index: $first-child-z-index;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

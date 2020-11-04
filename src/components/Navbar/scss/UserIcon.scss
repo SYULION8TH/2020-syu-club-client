@@ -1,0 +1,41 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+.__user-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 5px 15px 5px 5px;
+    overflow: hidden;
+
+    .__user-icon-img {
+        width: 100%;
+    }
+    .__user-icon-placeholder-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        // overflow-y: none;
+        position: relative;
+        .__user-icon-placholder-cover {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #fff;
+            opacity: 0.3;
+            border-radius: 50%;
+        }
+        .__user-icon-svg {
+            color: #fff;
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            margin-top: 10%;
+        }
+    }
+}

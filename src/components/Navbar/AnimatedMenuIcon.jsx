@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import './AnimatedMenuIcon.scss';
+import './scss/AnimatedMenuIcon.scss';
 
 const AnimatedMenuIcon = (props) => {
     const _onclick = () => {

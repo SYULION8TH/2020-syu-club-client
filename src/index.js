@@ -6,6 +6,7 @@ import './scss/common.scss';
 
 // VIEWS
 import MainView from './views/MainView';
+import MainViewNew from './views/MainViewNew';
 import NotFoundView from './views/NotFoundView';
 import LoginView from './views/LoginView';
 import UserProfileView from './views/UserProfileView';
@@ -67,7 +68,7 @@ ReactDOM.render(
                     <Navbar />
                     <CSSTransition timeout={3000000} className="fade">
                         <Switch>
-                            <Route exact path="/" component={MainView}></Route>
+                            <Route exact path="/" component={MainViewNew}></Route>
                             <Route path="/login" component={LoginView}></Route>
                             <Route path="/profile" component={UserProfileView}></Route>
                             <Route exact path="/club" component={ClubListViewNew}></Route>
@@ -76,9 +77,17 @@ ReactDOM.render(
                                 path="/club/:club_id/qna/:qna_id"
                                 component={QnaDetailView}
                             ></Route>
-                            <Route exact path="/club/:club_id/qna" component={QnaListViewNew}></Route>
+                            <Route
+                                exact
+                                path="/club/:club_id/qna"
+                                component={QnaListViewNew}
+                            ></Route>
                             <Route exact path="/club/:club_id" component={ClubDetailView}></Route>
-                            <Route exact path="/club/:club_id/post" component={PostInClubView}></Route>
+                            <Route
+                                exact
+                                path="/club/:club_id/post"
+                                component={PostInClubView}
+                            ></Route>
                             <Route exact path="/post" component={PostListView}></Route>
                             <Route
                                 exact

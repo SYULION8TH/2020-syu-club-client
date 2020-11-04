@@ -6,8 +6,8 @@ import { ClubsAPI } from '../../api';
 import AnimatedBackground from './AnimatedBackground';
 import SearchForm from './SearchForm';
 
-import { Card, PostCard, ClubCard } from '../../components';
-
+import { Card, PostCard, ClubCard, Logo } from '../../components';
+import { LOGO_TYPES, LOGO_COLOR_PRESETS } from '../../components/Logo';
 import { isNullOrUndefined } from 'core-util-is';
 import InterestClubPosts from './InterestClubPosts';
 
@@ -43,9 +43,11 @@ const MainView = (props) => {
             }}
         >
             <AnimatedBackground coverOpacity={coverOpacity} />
+
             <SearchForm history={props.history} />
             <div className="contents-container">
                 <div className="contents-wrapper">
+                    
                     <InterestClubPosts />
                     <Card
                         title="지금 인기 있는 동아리"

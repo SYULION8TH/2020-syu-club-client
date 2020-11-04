@@ -1,0 +1,15 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+@import './MainViewCommon.scss';
+
+.main-child-view.__main-view-second-section-container {
+    background-color: blue;
+    top: 100%;
+    z-index: $second-child-z-index;
+    transition: $slide-up-animation-duration;
+
+    &.active {
+        top: 0;
+        transition: $slide-up-animation-duration;
+    }
+}
