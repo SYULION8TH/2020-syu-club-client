@@ -56,7 +56,7 @@ const SideMenu = (props) => {
     useEffect(() => {
         if (isNullOrUndefined(info.data)) {
             fn.user.fetch();
-     }
+        }
     }, []);
 
     return (
