@@ -9,7 +9,11 @@ import { store } from '../';
 Axios.defaults.withCredentials = true;
 Axios.defaults.xsrfCookieName = 'csrftoken';
 Axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-
+//쿠키 넣고 싶어요......로그인유지하고싶어요............
+// const token = store.getState().session.token;
+// Axios.defaults.headers.common['Authorization'] = token;
+// Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+//여기까지
 Axios.interceptors.request.use(
     (config) => {
         store.dispatch(AddAxiosPendingWorks(config.url));

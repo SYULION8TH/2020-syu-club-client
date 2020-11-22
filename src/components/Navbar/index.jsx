@@ -9,9 +9,9 @@ import { useHistory } from 'react-router';
 export const Navbar = (props) => {
     const history = useHistory();
     const [menuOpened, setMenuOpened] = useState(false);
-    history.listen(() => {
-        setMenuOpened(false);
-    });
+    // history.listen(() => {
+    //     setMenuOpened(false);
+    // });
     return (
         <div className={`navbar-container`}>
             <AnimatedMenuIcon isOpened={menuOpened} setIsOpened={(v) => setMenuOpened(v)} />

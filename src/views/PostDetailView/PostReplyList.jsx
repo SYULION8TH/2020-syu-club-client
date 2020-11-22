@@ -90,7 +90,7 @@ const PostReplyList = (props) => {
                         {isNullOrUndefined(selectedComment) ? (
                             <></>
                         ) : (
-                            <p id="__reply-comment-user-name">@{selectedComment.user.username}</p>
+                            <p id="__reply-comment-user-name">@{selectedComment.user.name}</p>
                         )}
                         <input
                             type="text"
